@@ -1,93 +1,118 @@
 # Java Practice
 
-Kho lưu trữ các bài tập luyện lập trình Java của **Phan Tiến Đạt**, được tổ chức theo từng chương và chủ đề.
+**Luyện giải bài tập Java và thực hành lập trình hướng đối tượng.**
 
-Mục tiêu là rèn luyện kỹ năng giải bài toán, củng cố cách sử dụng Java và duy trì quá trình thực hành thông qua mã nguồn có thể biên dịch, chạy và kiểm tra độc lập.
+Repository lưu lại quá trình thực hành Java của **Phan Tiến Đạt**, từ các bài toán với điều kiện, vòng lặp, mảng và chuỗi đến các nội dung về lớp và đối tượng. Mã nguồn và tài liệu được tổ chức theo từng chương để thuận tiện theo dõi, chạy thử và ôn tập.
 
-## Công nghệ sử dụng
+## Nội dung
 
-- **Ngôn ngữ:** Java
-- **Môi trường phát triển:** Visual Studio Code
-- **Quản lý phiên bản:** Git và GitHub
+| Phần | Chủ đề | Hiện có |
+|---|---|---|
+| [Chương 1A](./chuong1a/) | Nhập xuất và tính toán | 3 bài giải Java và đề bài PDF |
+| [Chương 1B](./chuong1b/) | Điều kiện, vòng lặp, mảng và chuỗi | 10 bài giải Java và đề bài PDF |
+| [Chương 2](./Chuong2/) | Lập trình hướng đối tượng | Tài liệu PDF |
+| [Chương 3](./Chuong3/) | Lớp và đối tượng | Tài liệu PDF |
 
-## Nội dung hiện có
+### Chương 1A · Nhập xuất và tính toán
 
-| Phần | Nội dung |
+| Bài | Nội dung |
 |---|---|
-| [Chương 1A](./chuong1a/) | Nhập xuất dữ liệu, phép toán số học, tính chu vi và diện tích |
-| [Chương 1B](./chuong1b/) | Câu lệnh điều kiện, vòng lặp, kiểm tra số nguyên tố và tính tổng |
-
-### Chương 1A — Nhập xuất và tính toán
-
-| Bài | Yêu cầu |
-|---|---|
-| [Bài 1](./chuong1a/Bai1.java) | Tính tổng, hiệu, tích và thương của hai số nguyên |
+| [Bài 1](./chuong1a/Bai1.java) | Nhập hai số nguyên, tính tổng, hiệu, tích và thương |
 | [Bài 2](./chuong1a/Bai2.java) | Tính chu vi và diện tích hình chữ nhật |
 | [Bài 3](./chuong1a/Bai3.java) | Tính chu vi và diện tích hình tròn |
 
-📄 [Đề bài Chương 1A](./chuong1a/Chuong01a.pdf)
+📄 [Xem đề bài Chương 1A](./chuong1a/Chuong01a.pdf)
 
-### Chương 1B — Điều kiện và vòng lặp
+### Chương 1B · Điều kiện, vòng lặp, mảng và chuỗi
 
-| Bài | Yêu cầu |
+| Bài | Nội dung |
 |---|---|
-| [Bài 1](./chuong1b/Bai1.java) | Kiểm tra số nguyên là số âm, số 0 hay số dương |
+| [Bài 1](./chuong1b/Bai1.java) | Phân loại số nguyên: âm, bằng 0 hoặc dương |
 | [Bài 2](./chuong1b/Bai2.java) | Tìm số nhỏ nhất trong ba số nguyên |
 | [Bài 3](./chuong1b/Bai3.java) | Kiểm tra số nguyên tố |
-| [Bài 4](./chuong1b/Bai4.java) | Liệt kê, tính tổng các nhóm số và tìm N số nguyên tố đầu tiên |
+| [Bài 4](./chuong1b/Bai4.java) | Liệt kê và tính tổng các nhóm số; xuất N số nguyên tố đầu tiên |
+| [Bài 5](./chuong1b/Bai5.java) | Kiểm tra năm nhuận |
+| [Bài 6](./chuong1b/Bai6.java) | Phân loại ký tự: nguyên âm, phụ âm hoặc không phải chữ tiếng Anh |
+| [Bài 7](./chuong1b/Bai7.java) | Chuyển số tháng sang tên tháng tiếng Anh |
+| [Bài 8](./chuong1b/Bai8.java) | In tam giác dấu sao theo chiều cao nhập vào |
+| [Bài 9](./chuong1b/Bai9.java) | Nhập, xuất, lọc, tính tổng, thêm, xoá và tìm kiếm phần tử trong mảng |
+| [Bài 10](./chuong1b/Bai10.java) | Tính độ dài chuỗi, chuẩn hoá khoảng trắng, đếm từ và trích xuất chuỗi con |
 
-📄 [Đề bài Chương 1B](./chuong1b/Chuong01b.pdf)
+📄 [Xem đề bài Chương 1B](./chuong1b/Chuong01b.pdf)
 
-## Cách chạy
+### Chương 2 và Chương 3 · Lập trình hướng đối tượng
 
-### 1. Chuẩn bị
+Hai chương hiện có tài liệu PDF; mã nguồn thực hành sẽ được bổ sung trong quá trình học.
 
-Cài đặt **JDK** và kiểm tra bằng Terminal:
+- [Chương 2: Lập trình hướng đối tượng](./Chuong2/Chuong2_OOP.pdf)
+- [Chương 3: Lớp và đối tượng](./Chuong3/Chuong03_LopVaDoiTuong.pdf)
+
+## Môi trường sử dụng
+
+- **Java Development Kit (JDK)** để biên dịch và chạy chương trình.
+- **Visual Studio Code** để viết và quản lý mã nguồn.
+- **Git và GitHub** để theo dõi thay đổi.
+
+Các bài tập hiện tại sử dụng thư viện chuẩn Java, không cần cài thêm thư viện ngoài.
+
+## Hướng dẫn chạy
+
+### 1. Kiểm tra JDK
+
+Mở Terminal và chạy:
 
 ```bash
 java -version
 javac -version
 ```
 
-### 2. Clone repository
+Cả hai lệnh cần hiển thị phiên bản. Nếu Terminal chưa nhận lệnh, hãy kiểm tra việc cài đặt JDK và cấu hình `PATH`.
+
+### 2. Lấy mã nguồn
 
 ```bash
 git clone https://github.com/OwenDepTry/java-practice.git
 cd java-practice
 ```
 
-### 3. Biên dịch và chạy
+### 3. Biên dịch và thực thi
 
-Thực hiện các lệnh từ thư mục gốc `java-practice`.
+Chạy các lệnh từ thư mục gốc `java-practice`.
 
-Ví dụ, chạy Bài 1 của Chương 1A:
+**Ví dụ: Bài 1, Chương 1A**
 
 ```bash
-javac chuong1a/Bai1.java
+javac -encoding UTF-8 chuong1a/Bai1.java
 java chuong1a.Bai1
 ```
 
-Chạy Bài 4 của Chương 1B:
+**Ví dụ: Bài 9, Chương 1B**
 
 ```bash
-javac chuong1b/Bai4.java
-java chuong1b.Bai4
+javac -encoding UTF-8 chuong1b/Bai9.java
+java chuong1b.Bai9
 ```
 
-Thay tên chương và tên lớp tương ứng để chạy các bài khác.
+Thay tên thư mục và tên lớp tương ứng để chạy bài khác. Khi chương trình yêu cầu dữ liệu, nhập trực tiếp trong Terminal.
 
-> Tên file phải trùng với tên lớp `public`, có phân biệt chữ hoa và chữ thường. Khai báo `package` phải phù hợp với thư mục chứa mã nguồn.
+### Chạy bằng VS Code
+
+1. Mở thư mục `java-practice` trong VS Code.
+2. Cài **Extension Pack for Java** nếu chưa có môi trường hỗ trợ Java.
+3. Mở file bài tập cần chạy và lưu các thay đổi.
+4. Chọn **Run** phía trên hàm `main`, sau đó nhập dữ liệu trong Terminal.
+
+> Tên file phải trùng với tên lớp `public`, kể cả chữ hoa và chữ thường. Ví dụ: lớp `Bai9` được lưu trong `Bai9.java`. Các file thuộc thư mục `chuong1b` sử dụng khai báo `package chuong1b;`.
 
 ## Quy ước tổ chức
 
-- Mỗi chương được lưu trong một thư mục riêng.
-- Mỗi bài tập được triển khai trong một file Java riêng.
-- Tên lớp sử dụng dạng `Bai1`, `Bai2`, `Bai3`, …
-- Đề bài PDF được đặt cùng thư mục với lời giải.
-- Các bài tập sẽ được bổ sung và chỉnh sửa trong quá trình luyện tập.
+- Mỗi chương có một thư mục riêng; tài liệu PDF được đặt trong thư mục tương ứng.
+- Mỗi bài giải nằm trong một file Java và có hàm `main` để chạy độc lập.
+- Tên lớp theo dạng `Bai1`, `Bai2`, … để đối chiếu với đề bài.
+- Mã nguồn tiếp tục được bổ sung và chỉnh sửa trong quá trình thực hành.
 
 ## Tác giả
 
 **Phan Tiến Đạt**  
-Sinh viên ngành Công nghệ thông tin — Trường Đại học Sài Gòn  
+Sinh viên Công nghệ thông tin · Trường Đại học Sài Gòn  
 GitHub: [@OwenDepTry](https://github.com/OwenDepTry)

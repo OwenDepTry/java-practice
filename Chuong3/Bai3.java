@@ -1,7 +1,9 @@
+package Chuong3;
+
 import java.util.Scanner;
 
 // Bài 3: Lớp HINHTRON
-public class HinhTron {
+class HinhTron {
     private double banKinh;
 
     public HinhTron() {
@@ -37,7 +39,9 @@ public class HinhTron {
         System.out.printf("  Dien tich = %.2f%n", tinhDienTich());
         System.out.printf("  Chu vi    = %.2f%n", tinhChuVi());
     }
+}
 
+public class Bai3 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 

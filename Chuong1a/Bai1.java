@@ -1,4 +1,4 @@
-package chuong1a;
+package Chuong1a;
 
 import java.util.Scanner;
 

@@ -1,7 +1,9 @@
+package Chuong3;
+
 import java.util.Scanner;
 
 // Bài 1: Lớp DIEM
-public class Diem {
+class Diem {
     private float x;
     private float y;
 
@@ -39,7 +41,9 @@ public class Diem {
         x = x + dx;
         y = y + dy;
     }
+}
 
+public class Bai1 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 

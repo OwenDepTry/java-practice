@@ -1,7 +1,9 @@
+package Chuong3;
+
 import java.util.Scanner;
 
 // Bài 4: Lớp SINHVIEN
-public class SinhVien {
+class SinhVien {
     private String maSV;
     private String hoTen;
     private String lop;
@@ -84,7 +86,9 @@ public class SinhVien {
         System.out.println("  Diem: " + diem1 + ", " + diem2 + ", " + diem3);
         System.out.printf("  DTB = %.2f - Xep loai: %s%n", tinhDTB(), xepLoai());
     }
+}
 
+public class Bai4 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 

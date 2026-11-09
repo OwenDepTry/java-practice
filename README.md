@@ -2,7 +2,7 @@
 
 > Luyện giải bài tập Java và thực hành lập trình hướng đối tượng.
 
-Repository lưu lại quá trình học Java của **Phan Tiến Đạt**: từ nhập xuất, điều kiện, vòng lặp, mảng và chuỗi đến lớp, đối tượng, kế thừa và đa hình. Mỗi chương có một thư mục riêng gồm đề bài (PDF) và các bài giải có thể chạy độc lập.
+Repository lưu lại quá trình học Java của **Phan Tiến Đạt**: từ nhập xuất, điều kiện, vòng lặp, mảng và chuỗi đến lớp, đối tượng, kế thừa, đa hình, hàm chồng và sơ đồ lớp. Mỗi chương có một thư mục riêng gồm đề bài (PDF) và các bài giải có thể chạy độc lập.
 
 ## Mục lục
 
@@ -14,6 +14,9 @@ Repository lưu lại quá trình học Java của **Phan Tiến Đạt**: từ 
 | [Chương 3](./Chuong3/) | Lớp và đối tượng | 4 | [Chuong03_LopVaDoiTuong.pdf](./Chuong3/Chuong03_LopVaDoiTuong.pdf) |
 | [Chương 4](./Chuong4/) | Kế thừa | — | [Chuong04_KeThua.pdf](./Chuong4/Chuong04_KeThua.pdf) |
 | [Chương 5](./Chuong5/) | Tính đa hình | — | [Chuong05_TinhDaHinh.pdf](./Chuong5/Chuong05_TinhDaHinh.pdf) |
+| [Chương 6](./Chuong6/) | Hàm chồng và tạo lớp danh sách | — | [Chuong06_HamChongVaTaoLopDanhSach.pdf](./Chuong6/Chuong06_HamChongVaTaoLopDanhSach.pdf) |
+| [Chương 8](./ClassDiagram/) | Sơ đồ lớp (Class Diagram) | — | [ChuongVIII_ClassDiagram.pdf](./ClassDiagram/ChuongVIII_ClassDiagram.pdf) |
+| [Bài tập bổ sung](./BaiTapBoSung/) | Bài tập tổng hợp | — | [BaiTapBoSung.pdf](./BaiTapBoSung/BaiTapBoSung.pdf) |
 
 `—`: chương mới có tài liệu, bài giải sẽ được bổ sung trong quá trình học.
 
@@ -63,6 +66,9 @@ java-practice/
 ├── Chuong3/       # package Chuong3  — Bai1.java … Bai4.java
 ├── Chuong4/       # tài liệu PDF
 ├── Chuong5/       # tài liệu PDF
+├── Chuong6/       # tài liệu PDF
+├── ClassDiagram/  # tài liệu PDF — sơ đồ lớp
+├── BaiTapBoSung/  # tài liệu PDF — bài tập bổ sung
 └── README.md
 ```
 

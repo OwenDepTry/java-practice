@@ -17,12 +17,13 @@ class HinhTron extends HinhHoc {
         banKinh = 1;
     }
 
+    // Bán kính không hợp lệ (<= 0, NaN, quá lớn) thì dùng mặc định 1
     public HinhTron(double banKinh) {
-        this.banKinh = banKinh > 0 ? banKinh : 1;
+        this.banKinh = NhapLieu.kichThuocHopLe(banKinh) ? banKinh : 1;
     }
 
     public double getBanKinh() { return banKinh; }
-    public void setBanKinh(double banKinh) { if (banKinh > 0) this.banKinh = banKinh; }
+    public void setBanKinh(double banKinh) { if (NhapLieu.kichThuocHopLe(banKinh)) this.banKinh = banKinh; }
 
     @Override
     public double tinhDienTich() {
@@ -56,14 +57,14 @@ class HinhChuNhat extends HinhHoc {
     }
 
     public HinhChuNhat(double dai, double rong) {
-        this.dai = dai > 0 ? dai : 1;
-        this.rong = rong > 0 ? rong : 1;
+        this.dai = NhapLieu.kichThuocHopLe(dai) ? dai : 1;
+        this.rong = NhapLieu.kichThuocHopLe(rong) ? rong : 1;
     }
 
     public double getDai() { return dai; }
-    public void setDai(double dai) { if (dai > 0) this.dai = dai; }
+    public void setDai(double dai) { if (NhapLieu.kichThuocHopLe(dai)) this.dai = dai; }
     public double getRong() { return rong; }
-    public void setRong(double rong) { if (rong > 0) this.rong = rong; }
+    public void setRong(double rong) { if (NhapLieu.kichThuocHopLe(rong)) this.rong = rong; }
 
     @Override
     public double tinhDienTich() {

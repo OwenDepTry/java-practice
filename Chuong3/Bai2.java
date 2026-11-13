@@ -40,17 +40,24 @@ class HinhChuNhat {
         return true;
     }
 
+    // Kiểm tra SAU khi ép sang float bằng chính setter: 1e100 thành vô cực,
+    // 1e-100 thành 0 đều bị setter từ chối nên phải nhập lại
     public void nhap(Scanner sc) {
-        dai = (float) NhapLieu.soDuong(sc, "Nhap chieu dai: ");
-        rong = (float) NhapLieu.soDuong(sc, "Nhap chieu rong: ");
+        while (!setDai((float) NhapLieu.soDuong(sc, "Nhap chieu dai: "))) {
+            System.out.println("Gia tri vuot pham vi float duong, nhap lai!");
+        }
+        while (!setRong((float) NhapLieu.soDuong(sc, "Nhap chieu rong: "))) {
+            System.out.println("Gia tri vuot pham vi float duong, nhap lai!");
+        }
     }
 
-    public float tinhDienTich() {
-        return dai * rong;
+    // Tính bằng double: tích hai số float lớn (vd 1e30 x 1e30) vượt phạm vi float
+    public double tinhDienTich() {
+        return (double) dai * rong;
     }
 
-    public float tinhChuVi() {
-        return (dai + rong) * 2;
+    public double tinhChuVi() {
+        return ((double) dai + rong) * 2;
     }
 
     public void xuat() {

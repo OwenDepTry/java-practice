@@ -160,6 +160,7 @@ class DSCB {
     public int getN() { return n; }
 
     private int viTri(String ma) {
+        if (ma == null) return -1;
         for (int i = 0; i < n; i++) {
             if (ds[i].getMa().equalsIgnoreCase(ma.trim())) return i;
         }
@@ -182,7 +183,7 @@ class DSCB {
 
     // Mọi cách thêm đều đi qua hàm này nên mã cán bộ luôn duy nhất
     public boolean them(CanBo cb) {
-        if (cb == null || viTri(cb.getMa()) >= 0) return false;
+        if (cb == null || cb.getMa() == null || viTri(cb.getMa()) >= 0) return false;
         ds = Arrays.copyOf(ds, n + 1);
         ds[n] = cb;
         n++;
@@ -211,6 +212,7 @@ class DSCB {
     // Có thể có nhiều cán bộ trùng họ tên nên in hết các kết quả
     public int timTheoHoTen(String hoTen) {
         int dem = 0;
+        if (hoTen == null) return 0;
         for (int i = 0; i < n; i++) {
             if (ds[i].getHoTen().equalsIgnoreCase(hoTen.trim())) {
                 ds[i].xuat();

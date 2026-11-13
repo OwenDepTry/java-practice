@@ -114,7 +114,7 @@ class CongTyXYZ {
     // Câu a: nhập danh sách ca sĩ, lưu trong mảng
     public void nhap(Scanner sc) {
         int n;
-        n = NhapLieu.soNguyen(sc, "So ca si: ", 0, Integer.MAX_VALUE);
+        n = NhapLieu.soNguyen(sc, "So ca si (0-1000): ", 0, 1000);
 
         dsCaSi = new CaSi[n];
         for (int i = 0; i < n; i++) {

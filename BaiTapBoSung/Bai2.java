@@ -17,7 +17,7 @@ class Circle implements Shape {
     protected double radius = 1.0;
 
     public Circle(double radius) {
-        if (radius > 0) this.radius = radius;
+        if (NhapLieu.kichThuocHopLe(radius)) this.radius = radius;
     }
 
     public double getRadius() { return radius; }
@@ -51,7 +51,12 @@ class ResizableCircle extends Circle implements Resizable {
             System.out.println("percent phai > 0.");
             return;
         }
-        radius = radius * percent / 100.0;
+        double moi = radius * percent / 100.0;
+        if (!NhapLieu.kichThuocHopLe(moi)) {
+            System.out.println("Ban kinh sau resize vuot gioi han, giu nguyen.");
+            return;
+        }
+        radius = moi;
         System.out.printf("Sau khi resize %d%%: chu vi = %.2f, dien tich = %.2f%n",
                 percent, getPerimeter(), getArea());
     }
@@ -61,7 +66,7 @@ class Square implements Shape {
     protected double side = 1.0;
 
     public Square(double side) {
-        if (side > 0) this.side = side;
+        if (NhapLieu.kichThuocHopLe(side)) this.side = side;
     }
 
     public double getSide() { return side; }
@@ -94,7 +99,12 @@ class ResizableSquare extends Square implements Resizable {
             System.out.println("percent phai > 0.");
             return;
         }
-        side = side * percent / 100.0;
+        double moi = side * percent / 100.0;
+        if (!NhapLieu.kichThuocHopLe(moi)) {
+            System.out.println("Canh sau resize vuot gioi han, giu nguyen.");
+            return;
+        }
+        side = moi;
         System.out.printf("Sau khi resize %d%%: chu vi = %.2f, dien tich = %.2f%n",
                 percent, getPerimeter(), getArea());
     }

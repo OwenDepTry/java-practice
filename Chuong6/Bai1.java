@@ -106,7 +106,7 @@ class DSSV {
 
     // Mọi cách thêm đều đi qua hàm này nên mã SV luôn duy nhất
     public boolean them(SinhVien x) {
-        if (x == null || timkiem(x.getMaSV()) != null) return false;
+        if (x == null || x.getMaSV() == null || timkiem(x.getMaSV()) != null) return false;
         dssv = Arrays.copyOf(dssv, n + 1);
         dssv[n] = new SinhVien(x);   // gọi hàm thiết lập sao chép
         n++;
@@ -119,6 +119,7 @@ class DSSV {
     }
 
     public boolean xoa(String ma) {
+        if (ma == null) return false;
         for (int i = 0; i < n; i++) {
             if (dssv[i].getMaSV().equalsIgnoreCase(ma)) {
                 for (int j = i; j < n - 1; j++) {
@@ -133,6 +134,7 @@ class DSSV {
     }
 
     public SinhVien timkiem(String ma) {
+        if (ma == null) return null;
         for (int i = 0; i < n; i++) {
             if (dssv[i].getMaSV().equalsIgnoreCase(ma)) {
                 return dssv[i];

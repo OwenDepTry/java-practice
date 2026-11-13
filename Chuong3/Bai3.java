@@ -21,7 +21,8 @@ class HinhTron {
 
     // Trả về false và giữ giá trị cũ nếu bán kính không hợp lệ
     public boolean setBanKinh(double banKinh) {
-        if (!(banKinh > 0 && Double.isFinite(banKinh))) return false;
+        // Bán kính quá lớn làm diện tích vô cực nên giới hạn ở KICH_THUOC_TOI_DA
+        if (!NhapLieu.kichThuocHopLe(banKinh)) return false;
         this.banKinh = banKinh;
         return true;
     }

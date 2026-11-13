@@ -6,7 +6,16 @@ import java.util.Scanner;
 // nhập sai kiểu (chữ thay vì số), NaN, vô cực hoặc ngoài khoảng cho phép thì yêu cầu nhập lại
 // thay vì làm chương trình dừng với NumberFormatException.
 public class NhapLieu {
+    // Kích thước hình học tối đa: đủ lớn cho mọi bài tập, đồng thời bảo đảm
+    // diện tích (bình phương kích thước) vẫn là số hữu hạn trong kiểu double.
+    public static final double KICH_THUOC_TOI_DA = 1e100;
+
     private NhapLieu() { }
+
+    // Kích thước hợp lệ: 0 < d <= KICH_THUOC_TOI_DA (NaN tự động bị loại)
+    public static boolean kichThuocHopLe(double d) {
+        return d > 0 && d <= KICH_THUOC_TOI_DA;
+    }
 
     public static String chuoi(Scanner sc, String nhan) {
         System.out.print(nhan);
@@ -43,12 +52,17 @@ public class NhapLieu {
 
     // Số nguyên lớn (long) không nhỏ hơn min
     public static long soLong(Scanner sc, String nhan, long min) {
+        return soLong(sc, nhan, min, Long.MAX_VALUE);
+    }
+
+    // Số nguyên lớn (long) trong đoạn [min, max]
+    public static long soLong(Scanner sc, String nhan, long min, long max) {
         while (true) {
             String s = chuoi(sc, nhan);
             try {
                 long x = Long.parseLong(s);
-                if (x >= min) return x;
-                System.out.println("  Gia tri phai >= " + min + ", nhap lai!");
+                if (x >= min && x <= max) return x;
+                System.out.println("  Gia tri phai trong khoang [" + min + ", " + max + "], nhap lai!");
             } catch (NumberFormatException e) {
                 System.out.println("  \"" + s + "\" khong phai so nguyen hop le, nhap lai!");
             }
@@ -68,12 +82,12 @@ public class NhapLieu {
         }
     }
 
-    // Số thực dương (> 0), dùng cho kích thước hình học
+    // Kích thước hình học: 0 < x <= KICH_THUOC_TOI_DA
     public static double soDuong(Scanner sc, String nhan) {
         while (true) {
             double x = soThuc(sc, nhan);
-            if (x > 0) return x;
-            System.out.println("  Gia tri phai > 0, nhap lai!");
+            if (kichThuocHopLe(x)) return x;
+            System.out.println("  Gia tri phai > 0 va <= " + KICH_THUOC_TOI_DA + ", nhap lai!");
         }
     }
 

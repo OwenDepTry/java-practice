@@ -7,6 +7,9 @@ import java.util.Scanner;
 // Đề dùng kiểu int cho tiền; ở đây dùng long vì 40.000.000 x diện tích dễ vượt giới hạn int.
 abstract class Sap {
     private static final long DONGIA = 40_000_000L;   // đồng / m2 / năm
+    // Giới hạn tiền nhập vào (1 triệu tỷ đồng) để phép nhân thuế và tổng tiền không tràn long
+    protected static final long TIEN_TOI_DA = 1_000_000_000_000_000L;
+    private static final int DIEN_TICH_TOI_DA = 1_000_000;
     private int soThuTu;
     private int dienTich;       // m2
     protected long doanhThu;    // đồng
@@ -19,8 +22,8 @@ abstract class Sap {
 
     public Sap(int soThuTu, int dienTich, long doanhThu) {
         this.soThuTu = soThuTu;
-        this.dienTich = Math.max(0, dienTich);
-        this.doanhThu = Math.max(0, doanhThu);
+        this.dienTich = Math.max(0, Math.min(dienTich, DIEN_TICH_TOI_DA));
+        this.doanhThu = Math.max(0, Math.min(doanhThu, TIEN_TOI_DA));
     }
 
     public int getSoThuTu() { return soThuTu; }
@@ -44,8 +47,8 @@ abstract class Sap {
 
     public void nhap(Scanner sc) {
         soThuTu = NhapLieu.soNguyen(sc, "  So thu tu sap: ");
-        dienTich = NhapLieu.soNguyen(sc, "  Dien tich (m2): ", 1, Integer.MAX_VALUE);
-        doanhThu = NhapLieu.soLong(sc, "  Doanh thu (dong): ", 0);
+        dienTich = NhapLieu.soNguyen(sc, "  Dien tich (m2): ", 1, DIEN_TICH_TOI_DA);
+        doanhThu = NhapLieu.soLong(sc, "  Doanh thu (dong): ", 0, TIEN_TOI_DA);
     }
 
     public abstract String loai();
@@ -68,7 +71,7 @@ class SapThucPham extends Sap {
 
     public SapThucPham(int soThuTu, int dienTich, long doanhThu, long tienDichVu) {
         super(soThuTu, dienTich, doanhThu);
-        this.tienDichVu = Math.max(0, tienDichVu);
+        this.tienDichVu = Math.max(0, Math.min(tienDichVu, TIEN_TOI_DA));
     }
 
     @Override
@@ -84,7 +87,7 @@ class SapThucPham extends Sap {
     @Override
     public void nhap(Scanner sc) {
         super.nhap(sc);
-        tienDichVu = NhapLieu.soLong(sc, "  Tien dich vu dong lanh (dong): ", 0);
+        tienDichVu = NhapLieu.soLong(sc, "  Tien dich vu dong lanh (dong): ", 0, TIEN_TOI_DA);
     }
 
     @Override
@@ -138,7 +141,7 @@ class Cho {
 
     public void nhap(Scanner sc) {
         int n;
-        n = NhapLieu.soNguyen(sc, "So sap duoc thue (>= 1): ", 1, Integer.MAX_VALUE);
+        n = NhapLieu.soNguyen(sc, "So sap duoc thue (1-1000): ", 1, 1000);
 
         dsSap = new Sap[n];
         for (int i = 0; i < n; i++) {

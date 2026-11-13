@@ -5,6 +5,8 @@ import java.util.Scanner;
 
 // Bài 2: Văn phòng phẩm (Tap, But kế thừa VanPhongPham) và danh sách văn phòng phẩm
 abstract class VanPhongPham {
+    // Giới hạn đơn giá để tổng giá trị tồn kho (số lượng x đơn giá) luôn hữu hạn
+    static final double DON_GIA_TOI_DA = 1e12;
     private String ma;
     private String ten;
     private int soLuong;
@@ -31,13 +33,16 @@ abstract class VanPhongPham {
     public int getSoLuong() { return soLuong; }
     public void setSoLuong(int soLuong) { this.soLuong = Math.max(0, soLuong); }
     public double getDonGia() { return donGia; }
-    public void setDonGia(double donGia) { this.donGia = Math.max(0, donGia); }
+    public void setDonGia(double donGia) {
+        // NaN hoặc ngoài [0, DON_GIA_TOI_DA] thì giữ giá trị cũ
+        if (donGia >= 0 && donGia <= DON_GIA_TOI_DA) this.donGia = donGia;
+    }
 
     public void nhap(Scanner sc) {
         ma = NhapLieu.chuoiKhacRong(sc, "  Ma: ");
         ten = NhapLieu.chuoi(sc, "  Ten: ");
         soLuong = NhapLieu.soNguyen(sc, "  So luong co: ", 0, Integer.MAX_VALUE);
-        donGia = NhapLieu.soThuc(sc, "  Don gia ban: ", 0, Double.MAX_VALUE);
+        donGia = NhapLieu.soThuc(sc, "  Don gia ban: ", 0, DON_GIA_TOI_DA);
     }
 
     // Lớp con gọi super.xuat() rồi in thêm thuộc tính riêng
@@ -176,7 +181,7 @@ public class Bai2 {
         ds.them(new Tap("T01", "Tap Campus 96 trang", 50, 12000, 96));
         ds.them(new But("B01", "But bi Thien Long", 100, 5000, "Xanh"));
 
-        int k = NhapLieu.soNguyen(sc, "So van phong pham muon them: ");
+        int k = NhapLieu.soNguyen(sc, "So van phong pham muon them: ", 0, 1000);
         for (int i = 0; i < k; i++) {
             System.out.println("Van phong pham thu " + (i + 1) + ":");
             ds.them(sc);

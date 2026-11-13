@@ -25,9 +25,18 @@ class Diem {
     public float getY() { return y; }
     public void setY(float y) { this.y = y; }
 
+    // Nhập số thực rồi kiểm tra SAU khi ép sang float: số quá lớn thành vô cực thì nhập lại
+    static float nhapFloat(Scanner sc, String nhan) {
+        while (true) {
+            float v = (float) NhapLieu.soThuc(sc, nhan);
+            if (Float.isFinite(v)) return v;
+            System.out.println("  Gia tri vuot pham vi float, nhap lai!");
+        }
+    }
+
     public void nhap(Scanner sc) {
-        x = (float) NhapLieu.soThuc(sc, "Nhap x: ");
-        y = (float) NhapLieu.soThuc(sc, "Nhap y: ");
+        x = nhapFloat(sc, "Nhap x: ");
+        y = nhapFloat(sc, "Nhap y: ");
     }
 
     public void xuat() {
@@ -35,9 +44,14 @@ class Diem {
     }
 
     // Di chuyển điểm: x = x + x', y = y + y'
-    public void diChuyen(float dx, float dy) {
-        x = x + dx;
-        y = y + dy;
+    // Nếu tọa độ mới vượt phạm vi float thì không di chuyển và trả về false
+    public boolean diChuyen(float dx, float dy) {
+        float xMoi = x + dx;
+        float yMoi = y + dy;
+        if (!Float.isFinite(xMoi) || !Float.isFinite(yMoi)) return false;
+        x = xMoi;
+        y = yMoi;
+        return true;
     }
 }
 
@@ -56,11 +70,14 @@ public class Bai1 {
         b.xuat();
 
         System.out.println("Nhap x' va y' de di chuyen A:");
-        float dx = (float) NhapLieu.soThuc(sc, "  x' = ");
-        float dy = (float) NhapLieu.soThuc(sc, "  y' = ");
-        a.diChuyen(dx, dy);
-        System.out.print("A sau khi di chuyen: ");
-        a.xuat();
+        float dx = Diem.nhapFloat(sc, "  x' = ");
+        float dy = Diem.nhapFloat(sc, "  y' = ");
+        if (a.diChuyen(dx, dy)) {
+            System.out.print("A sau khi di chuyen: ");
+            a.xuat();
+        } else {
+            System.out.println("Toa do moi vuot pham vi float, A giu nguyen.");
+        }
 
         sc.close();
     }

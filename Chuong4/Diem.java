@@ -27,10 +27,8 @@ public class Diem {
     public void setY(int y) { this.y = y; }
 
     public void nhap(Scanner sc) {
-        System.out.print("  x = ");
-        x = Integer.parseInt(sc.nextLine().trim());
-        System.out.print("  y = ");
-        y = Integer.parseInt(sc.nextLine().trim());
+        x = NhapLieu.soNguyen(sc, "  x = ");
+        y = NhapLieu.soNguyen(sc, "  y = ");
     }
 
     public void xuat() {
@@ -39,8 +37,9 @@ public class Diem {
 
     // Khoảng cách từ điểm này tới điểm khác
     public double khoangCach(Diem khac) {
-        double dx = khac.x - x;
-        double dy = khac.y - y;
-        return Math.sqrt(dx * dx + dy * dy);
+        // Ép sang double trước khi trừ để không tràn số int với tọa độ lớn
+        double dx = (double) khac.x - x;
+        double dy = (double) khac.y - y;
+        return Math.hypot(dx, dy);
     }
 }

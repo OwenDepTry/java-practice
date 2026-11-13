@@ -33,12 +33,9 @@ class NoiSinh {
     public void setTinhThanh(String tinhThanh) { this.tinhThanh = tinhThanh; }
 
     public void nhap(Scanner sc) {
-        System.out.print("  Phuong: ");
-        phuong = sc.nextLine().trim();
-        System.out.print("  Quan: ");
-        quan = sc.nextLine().trim();
-        System.out.print("  Tinh/thanh: ");
-        tinhThanh = sc.nextLine().trim();
+        phuong = NhapLieu.chuoi(sc, "  Phuong: ");
+        quan = NhapLieu.chuoi(sc, "  Quan: ");
+        tinhThanh = NhapLieu.chuoi(sc, "  Tinh/thanh: ");
     }
 
     public void xuat() {
@@ -83,17 +80,10 @@ class Nguoi {
     public void setNoiSinh(NoiSinh noiSinh) { this.noiSinh = new NoiSinh(noiSinh); }
 
     public void nhap(Scanner sc) {
-        System.out.print("So dinh danh: ");
-        soDinhDanh = sc.nextLine().trim();
-        System.out.print("Ho ten: ");
-        hoTen = sc.nextLine().trim();
-        do {
-            System.out.print("Nam sinh: ");
-            namSinh = Integer.parseInt(sc.nextLine().trim());
-            if (namSinh <= 0) System.out.println("Nam sinh phai > 0, nhap lai!");
-        } while (namSinh <= 0);
-        System.out.print("Dia chi: ");
-        diaChi = sc.nextLine().trim();
+        soDinhDanh = NhapLieu.chuoi(sc, "So dinh danh: ");
+        hoTen = NhapLieu.chuoi(sc, "Ho ten: ");
+        namSinh = NhapLieu.soNguyen(sc, "Nam sinh: ", 1, Integer.MAX_VALUE);
+        diaChi = NhapLieu.chuoi(sc, "Dia chi: ");
         System.out.println("Noi sinh:");
         noiSinh.nhap(sc);
     }
@@ -133,10 +123,8 @@ class SinhVien extends Nguoi {
     @Override
     public void nhap(Scanner sc) {
         super.nhap(sc);   // nhập phần thông tin của Nguoi
-        System.out.print("Ma SV (so nguyen): ");
-        maSV = Integer.parseInt(sc.nextLine().trim());
-        System.out.print("Lop: ");
-        lop = sc.nextLine().trim();
+        maSV = NhapLieu.soNguyen(sc, "Ma SV (so nguyen): ");
+        lop = NhapLieu.chuoi(sc, "Lop: ");
     }
 
     @Override

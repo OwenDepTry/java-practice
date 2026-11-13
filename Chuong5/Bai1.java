@@ -36,11 +36,7 @@ class HinhTron extends HinhHoc {
 
     @Override
     public void nhap(Scanner sc) {
-        do {
-            System.out.print("  Ban kinh: ");
-            banKinh = Double.parseDouble(sc.nextLine().trim());
-            if (banKinh <= 0) System.out.println("  Ban kinh phai > 0, nhap lai!");
-        } while (banKinh <= 0);
+        banKinh = NhapLieu.soDuong(sc, "  Ban kinh: ");
     }
 
     @Override
@@ -81,13 +77,8 @@ class HinhChuNhat extends HinhHoc {
 
     @Override
     public void nhap(Scanner sc) {
-        do {
-            System.out.print("  Chieu dai: ");
-            dai = Double.parseDouble(sc.nextLine().trim());
-            System.out.print("  Chieu rong: ");
-            rong = Double.parseDouble(sc.nextLine().trim());
-            if (dai <= 0 || rong <= 0) System.out.println("  Kich thuoc phai > 0, nhap lai!");
-        } while (dai <= 0 || rong <= 0);
+        dai = NhapLieu.soDuong(sc, "  Chieu dai: ");
+        rong = NhapLieu.soDuong(sc, "  Chieu rong: ");
     }
 
     @Override
@@ -101,18 +92,14 @@ public class Bai1 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
-        System.out.print("So hinh can nhap: ");
-        int n = Integer.parseInt(sc.nextLine().trim());
+        int n = NhapLieu.soNguyen(sc, "So hinh can nhap: ", 0, 1000);
 
         // Mảng kiểu lớp cha chứa đối tượng của nhiều lớp con
-        HinhHoc[] ds = new HinhHoc[Math.max(n, 0)];
+        HinhHoc[] ds = new HinhHoc[n];
 
         for (int i = 0; i < ds.length; i++) {
             int loai;
-            do {
-                System.out.print("Hinh thu " + (i + 1) + " (1 = tron, 2 = chu nhat): ");
-                loai = Integer.parseInt(sc.nextLine().trim());
-            } while (loai != 1 && loai != 2);
+            loai = NhapLieu.soNguyen(sc, "Hinh thu " + (i + 1) + " (1 = tron, 2 = chu nhat): ", 1, 2);
 
             ds[i] = (loai == 1) ? new HinhTron() : new HinhChuNhat();
             ds[i].nhap(sc);   // đa hình: gọi nhap() của đúng lớp con

@@ -31,18 +31,11 @@ abstract class CaSi {
     public abstract String loai();
 
     protected static int docSoKhongAm(Scanner sc, String nhan) {
-        int x;
-        do {
-            System.out.print("  " + nhan + ": ");
-            x = Integer.parseInt(sc.nextLine().trim());
-            if (x < 0) System.out.println("  Gia tri phai >= 0, nhap lai!");
-        } while (x < 0);
-        return x;
+        return NhapLieu.soNguyen(sc, "  " + nhan + ": ", 0, Integer.MAX_VALUE);
     }
 
     public void nhap(Scanner sc) {
-        System.out.print("  Ho ten: ");
-        hoTen = sc.nextLine().trim();
+        hoTen = NhapLieu.chuoi(sc, "  Ho ten: ");
         soNamLamViec = docSoKhongAm(sc, "So nam lam viec");
         soDiaBan = docSoKhongAm(sc, "So dia da ban");
     }
@@ -121,18 +114,12 @@ class CongTyXYZ {
     // Câu a: nhập danh sách ca sĩ, lưu trong mảng
     public void nhap(Scanner sc) {
         int n;
-        do {
-            System.out.print("So ca si: ");
-            n = Integer.parseInt(sc.nextLine().trim());
-        } while (n < 0);
+        n = NhapLieu.soNguyen(sc, "So ca si: ", 0, Integer.MAX_VALUE);
 
         dsCaSi = new CaSi[n];
         for (int i = 0; i < n; i++) {
             int loai;
-            do {
-                System.out.print("Ca si " + (i + 1) + " (1 = chua noi tieng, 2 = noi tieng): ");
-                loai = Integer.parseInt(sc.nextLine().trim());
-            } while (loai != 1 && loai != 2);
+            loai = NhapLieu.soNguyen(sc, "Ca si " + (i + 1) + " (1 = chua noi tieng, 2 = noi tieng): ", 1, 2);
 
             dsCaSi[i] = (loai == 1) ? new CaSiChuaNoiTieng() : new CaSiNoiTieng();
             dsCaSi[i].nhap(sc);

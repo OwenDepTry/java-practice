@@ -111,15 +111,13 @@ public class Bai2 {
         }
 
         // Câu 2 và 3: ResizableCircle, ResizableSquare
-        System.out.print("\nNhap ban kinh hinh tron: ");
-        ResizableCircle rc = new ResizableCircle(Double.parseDouble(sc.nextLine().trim()));
-        System.out.print("Nhap canh hinh vuong: ");
-        ResizableSquare rs = new ResizableSquare(Double.parseDouble(sc.nextLine().trim()));
+        System.out.println();
+        ResizableCircle rc = new ResizableCircle(NhapLieu.soDuong(sc, "Nhap ban kinh hinh tron: "));
+        ResizableSquare rs = new ResizableSquare(NhapLieu.soDuong(sc, "Nhap canh hinh vuong: "));
         System.out.println(rc);
         System.out.println(rs);
 
-        System.out.print("Nhap percent: ");
-        int percent = Integer.parseInt(sc.nextLine().trim());
+        int percent = NhapLieu.soNguyen(sc, "Nhap percent (> 0): ", 1, 10000);
 
         Resizable[] coTheDoi = { rc, rs };
         for (Resizable r : coTheDoi) {

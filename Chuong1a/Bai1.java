@@ -12,9 +12,11 @@ public class Bai1 {
         System.out.print("Nhap so nguyen b: ");
         int b = sc.nextInt();
 
-        System.out.println("Tong: " + (a + b));
-        System.out.println("Hieu: " + (a - b));
-        System.out.println("Tich: " + (a * b));
+        // Ep sang long truoc khi tinh de khong bi tran so int
+
+        System.out.println("Tong: " + ((long) a + b));
+        System.out.println("Hieu: " + ((long) a - b));
+        System.out.println("Tich: " + ((long) a * b));
 
         if (b != 0) {
             System.out.println("Thuong: " + ((double) a / b));

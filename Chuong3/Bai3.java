@@ -6,24 +6,28 @@ import java.util.Scanner;
 class HinhTron {
     private double banKinh;
 
+    // Hình tròn mặc định bán kính 1
     public HinhTron() {
-        banKinh = 0;
+        banKinh = 1;
     }
 
+    // Bán kính không hợp lệ (<= 0) thì giữ giá trị mặc định 1
     public HinhTron(double banKinh) {
-        this.banKinh = banKinh;
+        this();
+        setBanKinh(banKinh);
     }
 
     public double getBanKinh() { return banKinh; }
-    public void setBanKinh(double banKinh) { this.banKinh = banKinh; }
+
+    // Trả về false và giữ giá trị cũ nếu bán kính không hợp lệ
+    public boolean setBanKinh(double banKinh) {
+        if (!(banKinh > 0 && Double.isFinite(banKinh))) return false;
+        this.banKinh = banKinh;
+        return true;
+    }
 
     public void nhap(Scanner sc) {
-        do {
-            System.out.print("Nhap ban kinh: ");
-            banKinh = sc.nextDouble();
-            if (banKinh <= 0)
-                System.out.println("Ban kinh phai > 0, nhap lai!");
-        } while (banKinh <= 0);
+        banKinh = NhapLieu.soDuong(sc, "Nhap ban kinh: ");
     }
 
     public double tinhDienTich() {
@@ -51,6 +55,10 @@ public class Bai3 {
 
         HinhTron ht2 = new HinhTron(2.5);
         ht2.xuat();
+
+        // Bán kính âm bị từ chối, hình giữ bán kính hợp lệ
+        HinhTron ht3 = new HinhTron(-2);
+        ht3.xuat();
 
         sc.close();
     }

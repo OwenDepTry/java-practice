@@ -34,21 +34,15 @@ class CanBo {
     public void setDiaChi(String diaChi) { this.diaChi = diaChi; }
 
     public void nhap(Scanner sc) {
-        System.out.print("  Ma: ");
-        ma = sc.nextLine().trim();
+        ma = NhapLieu.chuoiKhacRong(sc, "  Ma: ");
         nhapThongTin(sc);
     }
 
     // Nhập mọi thông tin trừ mã (dùng khi sửa cán bộ theo mã)
     public void nhapThongTin(Scanner sc) {
-        System.out.print("  Ho ten: ");
-        hoTen = sc.nextLine().trim();
-        do {
-            System.out.print("  Tuoi: ");
-            tuoi = Integer.parseInt(sc.nextLine().trim());
-        } while (tuoi <= 0);
-        System.out.print("  Dia chi: ");
-        diaChi = sc.nextLine().trim();
+        hoTen = NhapLieu.chuoiKhacRong(sc, "  Ho ten: ");
+        tuoi = NhapLieu.soNguyen(sc, "  Tuoi: ", 1, Integer.MAX_VALUE);
+        diaChi = NhapLieu.chuoi(sc, "  Dia chi: ");
     }
 
     public void xuat() {
@@ -77,10 +71,7 @@ class CongNhan extends CanBo {
     @Override
     public void nhapThongTin(Scanner sc) {
         super.nhapThongTin(sc);
-        do {
-            System.out.print("  Bac (1-10): ");
-            bac = Integer.parseInt(sc.nextLine().trim());
-        } while (bac < 1 || bac > 10);
+        bac = NhapLieu.soNguyen(sc, "  Bac (1-10): ", 1, 10);
     }
 
     @Override
@@ -112,8 +103,7 @@ class KySu extends CanBo {
     @Override
     public void nhapThongTin(Scanner sc) {
         super.nhapThongTin(sc);
-        System.out.print("  Nganh dao tao: ");
-        nganhDaoTao = sc.nextLine().trim();
+        nganhDaoTao = NhapLieu.chuoi(sc, "  Nganh dao tao: ");
     }
 
     @Override
@@ -145,8 +135,7 @@ class NhanVien extends CanBo {
     @Override
     public void nhapThongTin(Scanner sc) {
         super.nhapThongTin(sc);
-        System.out.print("  Cong viec: ");
-        congViec = sc.nextLine().trim();
+        congViec = NhapLieu.chuoi(sc, "  Cong viec: ");
     }
 
     @Override
@@ -180,10 +169,7 @@ class DSCB {
     // Thêm mới: hỏi loại cán bộ rồi nhập theo đúng lớp con
     public void themMoi(Scanner sc) {
         int loai;
-        do {
-            System.out.print("Loai (1 = cong nhan, 2 = ky su, 3 = nhan vien): ");
-            loai = Integer.parseInt(sc.nextLine().trim());
-        } while (loai < 1 || loai > 3);
+        loai = NhapLieu.soNguyen(sc, "Loai (1 = cong nhan, 2 = ky su, 3 = nhan vien): ", 1, 3);
 
         CanBo cb;
         if (loai == 1) cb = new CongNhan();
@@ -191,18 +177,16 @@ class DSCB {
         else cb = new NhanVien();
 
         cb.nhap(sc);
-        if (viTri(cb.getMa()) >= 0) {
-            System.out.println("Ma da ton tai, khong them.");
-            return;
-        }
-        them(cb);
-        System.out.println("Da them.");
+        System.out.println(them(cb) ? "Da them." : "Ma da ton tai, khong them.");
     }
 
-    public void them(CanBo cb) {
+    // Mọi cách thêm đều đi qua hàm này nên mã cán bộ luôn duy nhất
+    public boolean them(CanBo cb) {
+        if (cb == null || viTri(cb.getMa()) >= 0) return false;
         ds = Arrays.copyOf(ds, n + 1);
         ds[n] = cb;
         n++;
+        return true;
     }
 
     public boolean sua(String ma, Scanner sc) {
@@ -265,32 +249,24 @@ public class Bai3 {
             System.out.println("4. Tim kiem theo ho ten");
             System.out.println("5. Hien thi danh sach");
             System.out.println("0. Thoat");
-            System.out.print("Chon: ");
-            try {
-                chon = Integer.parseInt(sc.nextLine().trim());
-            } catch (NumberFormatException e) {
-                chon = -1;
-            }
+            chon = NhapLieu.soNguyen(sc, "Chon: ", 0, 5);
 
             switch (chon) {
                 case 1:
                     ds.themMoi(sc);
                     break;
                 case 2: {
-                    System.out.print("Ma can sua: ");
-                    String ma = sc.nextLine();
+                    String ma = NhapLieu.chuoi(sc, "Ma can sua: ");
                     System.out.println(ds.sua(ma, sc) ? "Da sua." : "Khong tim thay ma.");
                     break;
                 }
                 case 3: {
-                    System.out.print("Ma can xoa: ");
-                    String ma = sc.nextLine();
+                    String ma = NhapLieu.chuoi(sc, "Ma can xoa: ");
                     System.out.println(ds.xoa(ma) ? "Da xoa." : "Khong tim thay ma.");
                     break;
                 }
                 case 4: {
-                    System.out.print("Ho ten can tim: ");
-                    String ten = sc.nextLine();
+                    String ten = NhapLieu.chuoi(sc, "Ho ten can tim: ");
                     if (ds.timTheoHoTen(ten) == 0) System.out.println("Khong tim thay.");
                     break;
                 }

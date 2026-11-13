@@ -7,30 +7,42 @@ class HinhChuNhat {
     private float dai;
     private float rong;
 
+    // Hình mặc định 1 x 1 để luôn có kích thước hợp lệ
     public HinhChuNhat() {
-        dai = 0;
-        rong = 0;
+        dai = 1;
+        rong = 1;
     }
 
+    // Kích thước không hợp lệ (<= 0) thì giữ giá trị mặc định 1
     public HinhChuNhat(float dai, float rong) {
-        this.dai = dai;
-        this.rong = rong;
+        this();
+        setDai(dai);
+        setRong(rong);
+    }
+
+    private static boolean hopLe(float d) {
+        return d > 0 && Float.isFinite(d);
     }
 
     public float getDai() { return dai; }
-    public void setDai(float dai) { this.dai = dai; }
     public float getRong() { return rong; }
-    public void setRong(float rong) { this.rong = rong; }
+
+    // Trả về false và giữ giá trị cũ nếu kích thước không hợp lệ
+    public boolean setDai(float dai) {
+        if (!hopLe(dai)) return false;
+        this.dai = dai;
+        return true;
+    }
+
+    public boolean setRong(float rong) {
+        if (!hopLe(rong)) return false;
+        this.rong = rong;
+        return true;
+    }
 
     public void nhap(Scanner sc) {
-        do {
-            System.out.print("Nhap chieu dai: ");
-            dai = sc.nextFloat();
-            System.out.print("Nhap chieu rong: ");
-            rong = sc.nextFloat();
-            if (dai <= 0 || rong <= 0)
-                System.out.println("Kich thuoc phai > 0, nhap lai!");
-        } while (dai <= 0 || rong <= 0);
+        dai = (float) NhapLieu.soDuong(sc, "Nhap chieu dai: ");
+        rong = (float) NhapLieu.soDuong(sc, "Nhap chieu rong: ");
     }
 
     public float tinhDienTich() {
@@ -58,6 +70,10 @@ public class Bai2 {
 
         HinhChuNhat hcn2 = new HinhChuNhat(5, 3);
         hcn2.xuat();
+
+        // Kích thước âm bị từ chối, hình giữ kích thước hợp lệ
+        HinhChuNhat hcn3 = new HinhChuNhat(-5, 3);
+        hcn3.xuat();
 
         sc.close();
     }

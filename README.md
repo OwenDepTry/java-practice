@@ -28,24 +28,24 @@ Tài liệu tự biên soạn [Java_OOP_LyThuyet_Va_ViDu_ChiTiet.pdf](./Java_OOP
 
 | Bài | Nội dung |
 |---|---|
-| [Bài 1](./Chuong1a/Bai1.java) | Nhập hai số nguyên, tính tổng, hiệu, tích và thương |
-| [Bài 2](./Chuong1a/Bai2.java) | Tính chu vi và diện tích hình chữ nhật |
-| [Bài 3](./Chuong1a/Bai3.java) | Tính chu vi và diện tích hình tròn |
+| [Bài&nbsp;1](./Chuong1a/Bai1.java) | Nhập hai số nguyên, tính tổng, hiệu, tích và thương |
+| [Bài&nbsp;2](./Chuong1a/Bai2.java) | Tính chu vi và diện tích hình chữ nhật |
+| [Bài&nbsp;3](./Chuong1a/Bai3.java) | Tính chu vi và diện tích hình tròn |
 
 ### Chương 1B · Điều kiện, vòng lặp, mảng và chuỗi
 
 | Bài | Nội dung |
 |---|---|
-| [Bài 1](./Chuong1b/Bai1.java) | Phân loại số nguyên: âm, bằng 0 hoặc dương |
-| [Bài 2](./Chuong1b/Bai2.java) | Tìm số nhỏ nhất trong ba số nguyên |
-| [Bài 3](./Chuong1b/Bai3.java) | Kiểm tra số nguyên tố |
-| [Bài 4](./Chuong1b/Bai4.java) | Liệt kê và tính tổng các nhóm số; xuất N số nguyên tố đầu tiên |
-| [Bài 5](./Chuong1b/Bai5.java) | Kiểm tra năm nhuận |
-| [Bài 6](./Chuong1b/Bai6.java) | Phân loại ký tự: nguyên âm, phụ âm hoặc không phải chữ cái tiếng Anh |
-| [Bài 7](./Chuong1b/Bai7.java) | Chuyển số tháng sang tên tháng tiếng Anh |
-| [Bài 8](./Chuong1b/Bai8.java) | In tam giác dấu sao theo chiều cao nhập vào |
-| [Bài 9](./Chuong1b/Bai9.java) | Nhập, xuất, lọc, tính tổng, thêm, xoá và tìm kiếm phần tử trong mảng |
-| [Bài 10](./Chuong1b/Bai10.java) | Tính độ dài chuỗi, chuẩn hoá khoảng trắng, đếm từ và trích xuất chuỗi con |
+| [Bài&nbsp;1](./Chuong1b/Bai1.java) | Phân loại số nguyên: âm, bằng 0 hoặc dương |
+| [Bài&nbsp;2](./Chuong1b/Bai2.java) | Tìm số nhỏ nhất trong ba số nguyên |
+| [Bài&nbsp;3](./Chuong1b/Bai3.java) | Kiểm tra số nguyên tố |
+| [Bài&nbsp;4](./Chuong1b/Bai4.java) | Liệt kê và tính tổng các nhóm số; xuất N số nguyên tố đầu tiên |
+| [Bài&nbsp;5](./Chuong1b/Bai5.java) | Kiểm tra năm nhuận |
+| [Bài&nbsp;6](./Chuong1b/Bai6.java) | Phân loại ký tự: nguyên âm, phụ âm hoặc không phải chữ cái tiếng Anh |
+| [Bài&nbsp;7](./Chuong1b/Bai7.java) | Chuyển số tháng sang tên tháng tiếng Anh |
+| [Bài&nbsp;8](./Chuong1b/Bai8.java) | In tam giác dấu sao theo chiều cao nhập vào |
+| [Bài&nbsp;9](./Chuong1b/Bai9.java) | Nhập, xuất, lọc, tính tổng, thêm, xoá và tìm kiếm phần tử trong mảng |
+| [Bài&nbsp;10](./Chuong1b/Bai10.java) | Tính độ dài chuỗi, chuẩn hoá khoảng trắng, đếm từ và trích xuất chuỗi con |
 
 ### Chương 3 · Lớp và đối tượng
 
@@ -53,18 +53,18 @@ Mỗi lớp có thuộc tính `private`, getter/setter, hàm thiết lập có v
 
 | Bài | Lớp | Nội dung |
 |---|---|---|
-| [Bài 1](./Chuong3/Bai1.java) | `Diem` | Toạ độ x, y; di chuyển điểm theo (x', y') |
-| [Bài 2](./Chuong3/Bai2.java) | `HinhChuNhat` | Chiều dài, chiều rộng; tính diện tích và chu vi |
-| [Bài 3](./Chuong3/Bai3.java) | `HinhTron` | Bán kính; tính diện tích và chu vi |
-| [Bài 4](./Chuong3/Bai4.java) | `SinhVien` | Mã SV, họ tên, lớp, điểm 3 môn; tính điểm trung bình và xếp loại |
+| [Bài&nbsp;1](./Chuong3/Bai1.java) | `Diem` | Toạ độ x, y; di chuyển điểm theo (x', y') |
+| [Bài&nbsp;2](./Chuong3/Bai2.java) | `HinhChuNhat` | Chiều dài, chiều rộng; tính diện tích và chu vi |
+| [Bài&nbsp;3](./Chuong3/Bai3.java) | `HinhTron` | Bán kính; tính diện tích và chu vi |
+| [Bài&nbsp;4](./Chuong3/Bai4.java) | `SinhVien` | Mã SV, họ tên, lớp, điểm 3 môn; tính điểm trung bình và xếp loại |
 
 ### Chương 4 · Kế thừa
 
 | Bài | Lớp | Nội dung |
 |---|---|---|
-| [Bài 1](./Chuong4/Bai1.java) | `NoiSinh`, `Nguoi`, `SinhVien` | `Nguoi` có một `NoiSinh` (has-a); `SinhVien` kế thừa `Nguoi`, thêm MASV và lớp |
-| [Bài 2](./Chuong4/Bai2.java) | `Diem`, `DiemMau`, `DoanThang` | Đoạn thẳng gồm 2 điểm màu; tính khoảng cách, kiểm tra cùng màu |
-| [Bài 3](./Chuong4/Bai3.java) | `TamGiac` | Tam giác gồm 3 đỉnh `Diem` (dùng lại lớp của Bài 2); kiểm tra thẳng hàng, tính chu vi |
+| [Bài&nbsp;1](./Chuong4/Bai1.java) | `NoiSinh`, `Nguoi`, `SinhVien` | `Nguoi` có một `NoiSinh` (has-a); `SinhVien` kế thừa `Nguoi`, thêm MASV và lớp |
+| [Bài&nbsp;2](./Chuong4/Bai2.java) | `Diem`, `DiemMau`, `DoanThang` | Đoạn thẳng gồm 2 điểm màu; tính khoảng cách, kiểm tra cùng màu |
+| [Bài&nbsp;3](./Chuong4/Bai3.java) | `TamGiac` | Tam giác gồm 3 đỉnh `Diem` (dùng lại lớp của Bài 2); kiểm tra thẳng hàng, tính chu vi |
 
 Lớp `Diem` dùng chung cho Bài 2 và Bài 3 nên nằm ở file riêng [Diem.java](./Chuong4/Diem.java).
 
@@ -72,24 +72,24 @@ Lớp `Diem` dùng chung cho Bài 2 và Bài 3 nên nằm ở file riêng [Diem.
 
 | Bài | Lớp | Nội dung |
 |---|---|---|
-| [Bài 1](./Chuong5/Bai1.java) | `HinhHoc`, `HinhTron`, `HinhChuNhat` | Lớp trừu tượng hình học; mảng `HinhHoc[]` gọi nhập, xuất, diện tích, chu vi theo đa hình |
+| [Bài&nbsp;1](./Chuong5/Bai1.java) | `HinhHoc`, `HinhTron`, `HinhChuNhat` | Lớp trừu tượng hình học; mảng `HinhHoc[]` gọi nhập, xuất, diện tích, chu vi theo đa hình |
 
 ### Chương 6 · Hàm chồng và tạo lớp danh sách
 
 | Bài | Lớp | Nội dung |
 |---|---|---|
-| [Bài 1](./Chuong6/Bai1.java) | `SinhVien`, `DSSV`, `QuanLyDSSV` | Quản lý sinh viên: thêm (hàm chồng), xoá, sửa, tìm kiếm, thống kê qua menu |
-| [Bài 2](./Chuong6/Bai2.java) | `VanPhongPham`, `Tap`, `But`, `DanhSachVPP` | Văn phòng phẩm; đa hình cho nhập/xuất, thêm tập hoặc bút vào danh sách |
-| [Bài 3](./Chuong6/Bai3.java) | `CanBo`, `CongNhan`, `KySu`, `NhanVien`, `DSCB` | Quản lý cán bộ: thêm, sửa/xoá theo mã, tìm theo họ tên, hiển thị |
+| [Bài&nbsp;1](./Chuong6/Bai1.java) | `SinhVien`, `DSSV`, `QuanLyDSSV` | Quản lý sinh viên: thêm (hàm chồng), xoá, sửa, tìm kiếm, thống kê qua menu |
+| [Bài&nbsp;2](./Chuong6/Bai2.java) | `VanPhongPham`, `Tap`, `But`, `DanhSachVPP` | Văn phòng phẩm; đa hình cho nhập/xuất, thêm tập hoặc bút vào danh sách |
+| [Bài&nbsp;3](./Chuong6/Bai3.java) | `CanBo`, `CongNhan`, `KySu`, `NhanVien`, `DSCB` | Quản lý cán bộ: thêm, sửa/xoá theo mã, tìm theo họ tên, hiển thị |
 
 ### Bài tập bổ sung
 
 | Bài | Lớp | Nội dung |
 |---|---|---|
-| [Bài 1](./BaiTapBoSung/Bai1.java) | `Vehicle`, `PassengerVehicle`, `Car`, `Bus`, `Truck`, `Motorbike` | Cây phân cấp phương tiện; xe con và xe buýt thuộc nhóm xe chở khách; `input()`/`print()` đa hình |
-| [Bài 2](./BaiTapBoSung/Bai2.java) | `Shape`, `Resizable`, `Circle`, `Square`, `ResizableCircle`, `ResizableSquare` | Cài đặt theo sơ đồ lớp; `resize(percent)` in chu vi và diện tích sau khi đổi kích cỡ |
-| [Bài 3](./BaiTapBoSung/Bai3.java) | `Cho`, `Sap`, `SapThucPham`, `SapQuanAo`, `SapTrangSuc` | Chợ OOP-Market: nhập danh sách sạp, tính tổng tiền phải đóng (thuế trang sức luỹ tiến) |
-| [Bài 4](./BaiTapBoSung/Bai4.java) | `CaSi`, `CaSiChuaNoiTieng`, `CaSiNoiTieng`, `CongTyXYZ` | Nhập danh sách ca sĩ, tính lương, tìm ca sĩ lương cao nhất |
+| [Bài&nbsp;1](./BaiTapBoSung/Bai1.java) | `Vehicle`, `PassengerVehicle`, `Car`, `Bus`, `Truck`, `Motorbike` | Cây phân cấp phương tiện; xe con và xe buýt thuộc nhóm xe chở khách; `input()`/`print()` đa hình |
+| [Bài&nbsp;2](./BaiTapBoSung/Bai2.java) | `Shape`, `Resizable`, `Circle`, `Square`, `ResizableCircle`, `ResizableSquare` | Cài đặt theo sơ đồ lớp; `resize(percent)` in chu vi và diện tích sau khi đổi kích cỡ |
+| [Bài&nbsp;3](./BaiTapBoSung/Bai3.java) | `Cho`, `Sap`, `SapThucPham`, `SapQuanAo`, `SapTrangSuc` | Chợ OOP-Market: nhập danh sách sạp, tính tổng tiền phải đóng (thuế trang sức luỹ tiến) |
+| [Bài&nbsp;4](./BaiTapBoSung/Bai4.java) | `CaSi`, `CaSiChuaNoiTieng`, `CaSiNoiTieng`, `CongTyXYZ` | Nhập danh sách ca sĩ, tính lương, tìm ca sĩ lương cao nhất |
 
 ## Cấu trúc thư mục
 
@@ -98,13 +98,14 @@ java-programming-language/
 ├── Chuong1a/      # package Chuong1a — Bai1.java … Bai3.java
 ├── Chuong1b/      # package Chuong1b — Bai1.java … Bai10.java
 ├── Chuong2/       # tài liệu PDF
-├── Chuong3/       # package Chuong3  — Bai1.java … Bai4.java
-├── Chuong4/       # package Chuong4  — Bai1.java … Bai3.java, Diem.java
-├── Chuong5/       # package Chuong5  — Bai1.java
-├── Chuong6/       # package Chuong6  — Bai1.java … Bai3.java
+├── Chuong3/       # package Chuong3  — Bai1.java … Bai4.java, NhapLieu.java
+├── Chuong4/       # package Chuong4  — Bai1.java … Bai3.java, Diem.java, NhapLieu.java
+├── Chuong5/       # package Chuong5  — Bai1.java, NhapLieu.java
+├── Chuong6/       # package Chuong6  — Bai1.java … Bai3.java, NhapLieu.java
 ├── ClassDiagram/  # tài liệu PDF — sơ đồ lớp
-├── BaiTapBoSung/  # package BaiTapBoSung — Bai1.java … Bai4.java
+├── BaiTapBoSung/  # package BaiTapBoSung — Bai1.java … Bai4.java, NhapLieu.java
 ├── Java_OOP_LyThuyet_Va_ViDu_ChiTiet.pdf  # tài liệu lý thuyết tự biên soạn
+├── giaotrinh-JAVA.pdf                     # giáo trình Java (nguồn: Tài liệu HUST)
 └── README.md
 ```
 
@@ -174,6 +175,8 @@ Khi chương trình yêu cầu dữ liệu, nhập trực tiếp trong Terminal.
 - Mỗi bài nằm trong file `BaiN.java` với lớp `public class BaiN` chứa hàm `main`, để đối chiếu nhanh với đề bài.
 - Ở các chương hướng đối tượng, lớp chính của đề (như `Diem`, `SinhVien`) được khai báo trong cùng file, lớp `BaiN` dùng để chạy thử.
 - Trong một chương, tên lớp không được trùng giữa các file (VS Code biên dịch cả thư mục). Lớp dùng chung cho nhiều bài được tách ra file riêng, ví dụ `Chuong4/Diem.java`.
+- Từ Chương 3 trở đi, mỗi thư mục có `NhapLieu.java` chứa các hàm nhập an toàn: gõ chữ thay vì số, `NaN`, vô cực hoặc giá trị ngoài khoảng cho phép sẽ được yêu cầu nhập lại thay vì làm chương trình dừng.
+- Setter và hàm thiết lập từ chối dữ liệu sai (kích thước ≤ 0, điểm ngoài [0, 10], số trang ≤ 0) và giữ giá trị cũ; các hàm thêm vào danh sách không cho trùng mã.
 - Tên file phải trùng tên lớp `public`, kể cả chữ hoa và chữ thường.
 
 ## Tác giả
@@ -181,4 +184,9 @@ Khi chương trình yêu cầu dữ liệu, nhập trực tiếp trong Terminal.
 **Phan Tiến Đạt**<br>
 Sinh viên Công nghệ thông tin · Trường Đại học Sài Gòn<br>
 GitHub: [@OwenDepTry](https://github.com/OwenDepTry)
-Nguồn file giáo trình java: [@Owendeptry](https://tailieuhust.com/tai-lieu-lap-trinh-java-hust/)
+
+## Nguồn tài liệu
+
+- Slide bài giảng và đề bài tập trong các thư mục chương: tài liệu học phần, trang bìa Chương 1A ghi giảng viên Trần Nguyễn Minh Hiếu.
+- Giáo trình Java [giaotrinh-JAVA.pdf](./giaotrinh-JAVA.pdf): tải từ trang [Tài liệu môn Lập trình Java – Tài liệu HUST](https://tailieuhust.com/tai-lieu-lap-trinh-java-hust/).
+- [Java_OOP_LyThuyet_Va_ViDu_ChiTiet.pdf](./Java_OOP_LyThuyet_Va_ViDu_ChiTiet.pdf): tài liệu do Phan Tiến Đạt tự biên soạn từ các slide trên.

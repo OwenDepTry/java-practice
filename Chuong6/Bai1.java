@@ -36,17 +36,14 @@ class SinhVien {
     public void setSdt(String sdt) { this.sdt = sdt; }
 
     public void nhap(Scanner sc) {
-        System.out.print("  Ma SV: ");
-        maSV = sc.nextLine().trim();
+        maSV = NhapLieu.chuoiKhacRong(sc, "  Ma SV: ");
         nhapThongTin(sc);
     }
 
     // Nhập họ tên và SĐT (dùng chung cho nhap và sua)
     public void nhapThongTin(Scanner sc) {
-        System.out.print("  Ho ten: ");
-        hoTen = sc.nextLine().trim();
-        System.out.print("  So dien thoai: ");
-        sdt = sc.nextLine().trim();
+        hoTen = NhapLieu.chuoiKhacRong(sc, "  Ho ten: ");
+        sdt = NhapLieu.chuoi(sc, "  So dien thoai: ");
     }
 
     public void xuat() {
@@ -63,24 +60,29 @@ class DSSV {
         dssv = new SinhVien[0];
     }
 
+    // Sao chép n sinh viên đầu của mảng ds; sinh viên trùng mã bị bỏ qua
     public DSSV(int n, SinhVien[] ds) {
-        this.n = Math.max(0, Math.min(n, ds.length));
-        dssv = new SinhVien[this.n];
-        for (int i = 0; i < this.n; i++) {
-            dssv[i] = new SinhVien(ds[i]);
+        this();
+        int soLuong = Math.max(0, Math.min(n, ds.length));
+        for (int i = 0; i < soLuong; i++) {
+            if (ds[i] != null) them(ds[i]);
         }
     }
 
     public int getN() { return n; }
 
     public void nhap(Scanner sc) {
-        System.out.print("Nhap so luong sinh vien: ");
-        n = Math.max(0, Integer.parseInt(sc.nextLine().trim()));
-        dssv = new SinhVien[n];
-        for (int i = 0; i < n; i++) {
+        int soLuong = NhapLieu.soNguyen(sc, "Nhap so luong sinh vien: ", 0, 1000);
+        n = 0;
+        dssv = new SinhVien[0];
+        for (int i = 0; i < soLuong; i++) {
             System.out.println("Sinh vien thu " + (i + 1) + ":");
-            dssv[i] = new SinhVien();
-            dssv[i].nhap(sc);
+            SinhVien sv = new SinhVien();
+            sv.nhap(sc);
+            while (!them(sv)) {   // mã đã có trong danh sách
+                System.out.println("  Ma SV da ton tai, nhap lai ma!");
+                sv.setMaSV(NhapLieu.chuoiKhacRong(sc, "  Ma SV: "));
+            }
         }
     }
 
@@ -95,27 +97,24 @@ class DSSV {
         }
     }
 
-    // Hàm chồng: them() nhập từ bàn phím, them(SinhVien) thêm đối tượng có sẵn
+    // Hàm chồng: them(Scanner) nhập từ bàn phím, them(SinhVien) thêm đối tượng có sẵn
     public void them(Scanner sc) {
         SinhVien sv = new SinhVien();
         sv.nhap(sc);
-        if (timkiem(sv.getMaSV()) != null) {
-            System.out.println("Ma SV da ton tai, khong them.");
-            return;
-        }
-        them(sv);
-        System.out.println("Da them.");
+        System.out.println(them(sv) ? "Da them." : "Ma SV da ton tai, khong them.");
     }
 
-    public void them(SinhVien x) {
+    // Mọi cách thêm đều đi qua hàm này nên mã SV luôn duy nhất
+    public boolean them(SinhVien x) {
+        if (x == null || timkiem(x.getMaSV()) != null) return false;
         dssv = Arrays.copyOf(dssv, n + 1);
         dssv[n] = new SinhVien(x);   // gọi hàm thiết lập sao chép
         n++;
+        return true;
     }
 
     public void xoa(Scanner sc) {
-        System.out.print("Nhap ma SV can xoa: ");
-        String ma = sc.nextLine().trim();
+        String ma = NhapLieu.chuoi(sc, "Nhap ma SV can xoa: ");
         System.out.println(xoa(ma) ? "Da xoa." : "Khong tim thay ma " + ma);
     }
 
@@ -143,8 +142,7 @@ class DSSV {
     }
 
     public void sua(Scanner sc) {
-        System.out.print("Nhap ma SV can sua: ");
-        String ma = sc.nextLine().trim();
+        String ma = NhapLieu.chuoi(sc, "Nhap ma SV can sua: ");
         if (!sua(ma, sc)) System.out.println("Khong tim thay ma " + ma);
     }
 
@@ -188,8 +186,7 @@ class QuanLyDSSV {
             System.out.println("5. Tim kiem theo ma");
             System.out.println("6. Thong ke");
             System.out.println("7. Thoat");
-            System.out.print("Chon: ");
-            chon = docLuaChon();
+            chon = NhapLieu.soNguyen(sc, "Chon: ", 1, 7);
 
             switch (chon) {
                 case 1:
@@ -205,8 +202,7 @@ class QuanLyDSSV {
                     ds.sua(sc);
                     break;
                 case 5:
-                    System.out.print("Nhap ma SV can tim: ");
-                    SinhVien sv = ds.timkiem(sc.nextLine().trim());
+                    SinhVien sv = ds.timkiem(NhapLieu.chuoi(sc, "Nhap ma SV can tim: "));
                     if (sv == null) System.out.println("Khong tim thay.");
                     else sv.xuat();
                     break;
@@ -222,13 +218,6 @@ class QuanLyDSSV {
         } while (chon != 7);
     }
 
-    private int docLuaChon() {
-        try {
-            return Integer.parseInt(sc.nextLine().trim());
-        } catch (NumberFormatException e) {
-            return -1;
-        }
-    }
 }
 
 public class Bai1 {

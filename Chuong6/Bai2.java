@@ -34,18 +34,10 @@ abstract class VanPhongPham {
     public void setDonGia(double donGia) { this.donGia = Math.max(0, donGia); }
 
     public void nhap(Scanner sc) {
-        System.out.print("  Ma: ");
-        ma = sc.nextLine().trim();
-        System.out.print("  Ten: ");
-        ten = sc.nextLine().trim();
-        do {
-            System.out.print("  So luong co: ");
-            soLuong = Integer.parseInt(sc.nextLine().trim());
-        } while (soLuong < 0);
-        do {
-            System.out.print("  Don gia ban: ");
-            donGia = Double.parseDouble(sc.nextLine().trim());
-        } while (donGia < 0);
+        ma = NhapLieu.chuoiKhacRong(sc, "  Ma: ");
+        ten = NhapLieu.chuoi(sc, "  Ten: ");
+        soLuong = NhapLieu.soNguyen(sc, "  So luong co: ", 0, Integer.MAX_VALUE);
+        donGia = NhapLieu.soThuc(sc, "  Don gia ban: ", 0, Double.MAX_VALUE);
     }
 
     // Lớp con gọi super.xuat() rồi in thêm thuộc tính riêng
@@ -61,22 +53,29 @@ class Tap extends VanPhongPham {
 
     public Tap() {
         super();
-        soTrang = 0;
+        soTrang = 1;
     }
 
+    // Số trang phải > 0; giá trị không hợp lệ thì dùng mặc định 1
     public Tap(String ma, String ten, int soLuong, double donGia, int soTrang) {
         super(ma, ten, soLuong, donGia);
-        this.soTrang = soTrang;
+        this.soTrang = 1;
+        setSoTrang(soTrang);
     }
 
     public int getSoTrang() { return soTrang; }
-    public void setSoTrang(int soTrang) { this.soTrang = soTrang; }
+
+    // Trả về false và giữ giá trị cũ nếu số trang <= 0
+    public boolean setSoTrang(int soTrang) {
+        if (soTrang <= 0) return false;
+        this.soTrang = soTrang;
+        return true;
+    }
 
     @Override
     public void nhap(Scanner sc) {
         super.nhap(sc);
-        System.out.print("  So trang: ");
-        soTrang = Integer.parseInt(sc.nextLine().trim());
+        soTrang = NhapLieu.soNguyen(sc, "  So trang (> 0): ", 1, Integer.MAX_VALUE);
     }
 
     @Override
@@ -109,8 +108,7 @@ class But extends VanPhongPham {
     @Override
     public void nhap(Scanner sc) {
         super.nhap(sc);
-        System.out.print("  Mau muc: ");
-        mauMuc = sc.nextLine().trim();
+        mauMuc = NhapLieu.chuoi(sc, "  Mau muc: ");
     }
 
     @Override
@@ -148,10 +146,7 @@ class DanhSachVPP {
     // Cho người dùng chọn loại rồi nhập: biến kiểu VanPhongPham trỏ tới Tap hoặc But
     public void them(Scanner sc) {
         int loai;
-        do {
-            System.out.print("Them (1 = tap, 2 = but): ");
-            loai = Integer.parseInt(sc.nextLine().trim());
-        } while (loai != 1 && loai != 2);
+        loai = NhapLieu.soNguyen(sc, "Them (1 = tap, 2 = but): ", 1, 2);
 
         VanPhongPham vp = (loai == 1) ? new Tap() : new But();
         vp.nhap(sc);        // đa hình: Tap.nhap() hoặc But.nhap()
@@ -181,8 +176,7 @@ public class Bai2 {
         ds.them(new Tap("T01", "Tap Campus 96 trang", 50, 12000, 96));
         ds.them(new But("B01", "But bi Thien Long", 100, 5000, "Xanh"));
 
-        System.out.print("So van phong pham muon them: ");
-        int k = Integer.parseInt(sc.nextLine().trim());
+        int k = NhapLieu.soNguyen(sc, "So van phong pham muon them: ");
         for (int i = 0; i < k; i++) {
             System.out.println("Van phong pham thu " + (i + 1) + ":");
             ds.them(sc);

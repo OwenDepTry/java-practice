@@ -43,16 +43,9 @@ abstract class Sap {
     }
 
     public void nhap(Scanner sc) {
-        System.out.print("  So thu tu sap: ");
-        soThuTu = Integer.parseInt(sc.nextLine().trim());
-        do {
-            System.out.print("  Dien tich (m2): ");
-            dienTich = Integer.parseInt(sc.nextLine().trim());
-        } while (dienTich <= 0);
-        do {
-            System.out.print("  Doanh thu (dong): ");
-            doanhThu = Long.parseLong(sc.nextLine().trim());
-        } while (doanhThu < 0);
+        soThuTu = NhapLieu.soNguyen(sc, "  So thu tu sap: ");
+        dienTich = NhapLieu.soNguyen(sc, "  Dien tich (m2): ", 1, Integer.MAX_VALUE);
+        doanhThu = NhapLieu.soLong(sc, "  Doanh thu (dong): ", 0);
     }
 
     public abstract String loai();
@@ -91,10 +84,7 @@ class SapThucPham extends Sap {
     @Override
     public void nhap(Scanner sc) {
         super.nhap(sc);
-        do {
-            System.out.print("  Tien dich vu dong lanh (dong): ");
-            tienDichVu = Long.parseLong(sc.nextLine().trim());
-        } while (tienDichVu < 0);
+        tienDichVu = NhapLieu.soLong(sc, "  Tien dich vu dong lanh (dong): ", 0);
     }
 
     @Override
@@ -148,18 +138,12 @@ class Cho {
 
     public void nhap(Scanner sc) {
         int n;
-        do {
-            System.out.print("So sap duoc thue (>= 1): ");
-            n = Integer.parseInt(sc.nextLine().trim());
-        } while (n < 1);
+        n = NhapLieu.soNguyen(sc, "So sap duoc thue (>= 1): ", 1, Integer.MAX_VALUE);
 
         dsSap = new Sap[n];
         for (int i = 0; i < n; i++) {
             int loai;
-            do {
-                System.out.print("Sap " + (i + 1) + " (1 = thuc pham, 2 = quan ao, 3 = trang suc): ");
-                loai = Integer.parseInt(sc.nextLine().trim());
-            } while (loai < 1 || loai > 3);
+            loai = NhapLieu.soNguyen(sc, "Sap " + (i + 1) + " (1 = thuc pham, 2 = quan ao, 3 = trang suc): ", 1, 3);
 
             if (loai == 1) dsSap[i] = new SapThucPham();
             else if (loai == 2) dsSap[i] = new SapQuanAo();

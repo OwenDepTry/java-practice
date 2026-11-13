@@ -27,11 +27,18 @@ class TamGiac {
     public Diem getC() { return c; }
     public void setC(Diem c) { this.c = new Diem(c); }
 
-    // Ba điểm tạo thành tam giác khi không thẳng hàng
+    // Ba điểm tạo thành tam giác khi không thẳng hàng:
+    // (xB - xA)(yC - yA) != (yB - yA)(xC - xA)
+    // Hiệu tọa độ được tính bằng long (không tràn); mỗi tích có thể vượt long
+    // nên so sánh chính xác trên 128 bit bằng Math.multiplyHigh (phần cao) và phép nhân thường (phần thấp).
     public boolean hopLe() {
-        long tichCoHuong = (long) (b.getX() - a.getX()) * (c.getY() - a.getY())
-                - (long) (b.getY() - a.getY()) * (c.getX() - a.getX());
-        return tichCoHuong != 0;
+        long ux = (long) b.getX() - a.getX();
+        long uy = (long) b.getY() - a.getY();
+        long vx = (long) c.getX() - a.getX();
+        long vy = (long) c.getY() - a.getY();
+        boolean bangNhau = Math.multiplyHigh(ux, vy) == Math.multiplyHigh(uy, vx)
+                && ux * vy == uy * vx;
+        return !bangNhau;
     }
 
     public void nhap(Scanner sc) {

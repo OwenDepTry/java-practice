@@ -26,10 +26,8 @@ class Diem {
     public void setY(float y) { this.y = y; }
 
     public void nhap(Scanner sc) {
-        System.out.print("Nhap x: ");
-        x = sc.nextFloat();
-        System.out.print("Nhap y: ");
-        y = sc.nextFloat();
+        x = (float) NhapLieu.soThuc(sc, "Nhap x: ");
+        y = (float) NhapLieu.soThuc(sc, "Nhap y: ");
     }
 
     public void xuat() {
@@ -57,9 +55,9 @@ public class Bai1 {
         System.out.print("Diem B: ");
         b.xuat();
 
-        System.out.print("Nhap x' va y' de di chuyen A: ");
-        float dx = sc.nextFloat();
-        float dy = sc.nextFloat();
+        System.out.println("Nhap x' va y' de di chuyen A:");
+        float dx = (float) NhapLieu.soThuc(sc, "  x' = ");
+        float dy = (float) NhapLieu.soThuc(sc, "  y' = ");
         a.diChuyen(dx, dy);
         System.out.print("A sau khi di chuyen: ");
         a.xuat();

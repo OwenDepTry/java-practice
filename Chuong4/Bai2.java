@@ -27,8 +27,7 @@ class DiemMau extends Diem {
     @Override
     public void nhap(Scanner sc) {
         super.nhap(sc);
-        System.out.print("  Mau (so nguyen) = ");
-        mau = Integer.parseInt(sc.nextLine().trim());
+        mau = NhapLieu.soNguyen(sc, "  Mau (so nguyen) = ");
     }
 
     @Override

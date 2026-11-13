@@ -30,10 +30,8 @@ abstract class Vehicle {
     public String getBrand() { return brand; }
 
     public void input(Scanner sc) {
-        System.out.print("  So dang ky: ");
-        reg_num = sc.nextLine().trim();
-        System.out.print("  Hang: ");
-        brand = sc.nextLine().trim();
+        reg_num = NhapLieu.chuoi(sc, "  So dang ky: ");
+        brand = NhapLieu.chuoi(sc, "  Hang: ");
     }
 
     public void print() {
@@ -43,13 +41,7 @@ abstract class Vehicle {
     public abstract String loai();
 
     protected static int docSoKhongAm(Scanner sc, String nhan) {
-        int x;
-        do {
-            System.out.print("  " + nhan + ": ");
-            x = Integer.parseInt(sc.nextLine().trim());
-            if (x < 0) System.out.println("  Gia tri phai >= 0, nhap lai!");
-        } while (x < 0);
-        return x;
+        return NhapLieu.soNguyen(sc, "  " + nhan + ": ", 0, Integer.MAX_VALUE);
     }
 }
 
@@ -197,17 +189,12 @@ public class Bai1 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
-        System.out.print("So phuong tien can nhap: ");
-        int n = Math.max(0, Integer.parseInt(sc.nextLine().trim()));
+        int n = NhapLieu.soNguyen(sc, "So phuong tien can nhap: ", 0, 1000);
         Vehicle[] ds = new Vehicle[n];
 
         for (int i = 0; i < n; i++) {
-            int loai;
-            do {
-                System.out.print("Phuong tien " + (i + 1)
-                        + " (1 = xe con, 2 = xe buyt, 3 = xe tai, 4 = xe may): ");
-                loai = Integer.parseInt(sc.nextLine().trim());
-            } while (loai < 1 || loai > 4);
+            int loai = NhapLieu.soNguyen(sc, "Phuong tien " + (i + 1)
+                    + " (1 = xe con, 2 = xe buyt, 3 = xe tai, 4 = xe may): ", 1, 4);
 
             switch (loai) {
                 case 1: ds[i] = new Car(); break;

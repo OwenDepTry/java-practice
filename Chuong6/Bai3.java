@@ -24,6 +24,16 @@ class CanBo {
         this.diaChi = diaChi;
     }
 
+    // Hàm thiết lập sao chép
+    public CanBo(CanBo khac) {
+        this(khac.ma, khac.hoTen, khac.tuoi, khac.diaChi);
+    }
+
+    // Tạo bản sao đúng lớp con (đa hình); DSCB chỉ lưu bản sao
+    public CanBo saoChep() {
+        return new CanBo(this);
+    }
+
     public String getMa() { return ma; }
     public void setMa(String ma) { this.ma = ma; }
     public String getHoTen() { return hoTen; }
@@ -65,6 +75,14 @@ class CongNhan extends CanBo {
         setBac(bac);
     }
 
+    public CongNhan(CongNhan khac) {
+        super(khac);
+        bac = khac.bac;
+    }
+
+    @Override
+    public CanBo saoChep() { return new CongNhan(this); }
+
     public int getBac() { return bac; }
     public void setBac(int bac) { this.bac = (bac >= 1 && bac <= 10) ? bac : 1; }
 
@@ -97,6 +115,14 @@ class KySu extends CanBo {
         this.nganhDaoTao = nganhDaoTao;
     }
 
+    public KySu(KySu khac) {
+        super(khac);
+        nganhDaoTao = khac.nganhDaoTao;
+    }
+
+    @Override
+    public CanBo saoChep() { return new KySu(this); }
+
     public String getNganhDaoTao() { return nganhDaoTao; }
     public void setNganhDaoTao(String nganhDaoTao) { this.nganhDaoTao = nganhDaoTao; }
 
@@ -128,6 +154,14 @@ class NhanVien extends CanBo {
         super(ma, hoTen, tuoi, diaChi);
         this.congViec = congViec;
     }
+
+    public NhanVien(NhanVien khac) {
+        super(khac);
+        congViec = khac.congViec;
+    }
+
+    @Override
+    public CanBo saoChep() { return new NhanVien(this); }
 
     public String getCongViec() { return congViec; }
     public void setCongViec(String congViec) { this.congViec = congViec; }
@@ -181,12 +215,24 @@ class DSCB {
         System.out.println(them(cb) ? "Da them." : "Ma da ton tai, khong them.");
     }
 
-    // Mọi cách thêm đều đi qua hàm này nên mã cán bộ luôn duy nhất
+    // Mọi cách thêm đều đi qua hàm này nên mã cán bộ luôn duy nhất.
+    // Danh sách lưu BẢN SAO: bên gọi sửa đối tượng gốc sau đó (vd setMa) không ảnh hưởng danh sách.
     public boolean them(CanBo cb) {
-        if (cb == null || cb.getMa() == null || viTri(cb.getMa()) >= 0) return false;
+        if (cb == null || cb.getMa() == null || cb.getMa().trim().isEmpty()
+                || viTri(cb.getMa()) >= 0) return false;
         ds = Arrays.copyOf(ds, n + 1);
-        ds[n] = cb;
+        ds[n] = cb.saoChep();
         n++;
+        return true;
+    }
+
+    // Đổi mã do danh sách quản lý: mã mới không được rỗng, null hoặc trùng cán bộ khác
+    public boolean doiMa(String maCu, String maMoi) {
+        int i = viTri(maCu);
+        if (i < 0 || maMoi == null || maMoi.trim().isEmpty()) return false;
+        int j = viTri(maMoi);
+        if (j >= 0 && j != i) return false;
+        ds[i].setMa(maMoi.trim());
         return true;
     }
 

@@ -106,7 +106,7 @@ class DSSV {
 
     // Mọi cách thêm đều đi qua hàm này nên mã SV luôn duy nhất
     public boolean them(SinhVien x) {
-        if (x == null || x.getMaSV() == null || timkiem(x.getMaSV()) != null) return false;
+        if (x == null || x.getMaSV() == null || x.getMaSV().trim().isEmpty() || viTri(x.getMaSV()) >= 0) return false;
         dssv = Arrays.copyOf(dssv, n + 1);
         dssv[n] = new SinhVien(x);   // gọi hàm thiết lập sao chép
         n++;
@@ -119,28 +119,39 @@ class DSSV {
     }
 
     public boolean xoa(String ma) {
-        if (ma == null) return false;
-        for (int i = 0; i < n; i++) {
-            if (dssv[i].getMaSV().equalsIgnoreCase(ma)) {
-                for (int j = i; j < n - 1; j++) {
-                    dssv[j] = dssv[j + 1];
-                }
-                dssv = Arrays.copyOf(dssv, n - 1);
-                n--;
-                return true;
-            }
+        int i = viTri(ma);
+        if (i < 0) return false;
+        for (int j = i; j < n - 1; j++) {
+            dssv[j] = dssv[j + 1];
         }
-        return false;
+        dssv = Arrays.copyOf(dssv, n - 1);
+        n--;
+        return true;
     }
 
-    public SinhVien timkiem(String ma) {
-        if (ma == null) return null;
+    private int viTri(String ma) {
+        if (ma == null) return -1;
         for (int i = 0; i < n; i++) {
-            if (dssv[i].getMaSV().equalsIgnoreCase(ma)) {
-                return dssv[i];
-            }
+            if (dssv[i].getMaSV().equalsIgnoreCase(ma.trim())) return i;
         }
-        return null;
+        return -1;
+    }
+
+    // Trả về BẢN SAO: bên ngoài sửa bản sao (kể cả setMaSV) không làm đổi dữ liệu trong danh sách.
+    // Muốn sửa thì gọi sua(...) hoặc doiMa(...) của DSSV.
+    public SinhVien timkiem(String ma) {
+        int i = viTri(ma);
+        return i < 0 ? null : new SinhVien(dssv[i]);
+    }
+
+    // Đổi mã do danh sách quản lý: mã mới không được rỗng, null hoặc trùng sinh viên khác
+    public boolean doiMa(String maCu, String maMoi) {
+        int i = viTri(maCu);
+        if (i < 0 || maMoi == null || maMoi.trim().isEmpty()) return false;
+        int j = viTri(maMoi);
+        if (j >= 0 && j != i) return false;
+        dssv[i].setMaSV(maMoi.trim());
+        return true;
     }
 
     public void sua(Scanner sc) {
@@ -149,8 +160,9 @@ class DSSV {
     }
 
     public boolean sua(String ma, Scanner sc) {
-        SinhVien sv = timkiem(ma);
-        if (sv == null) return false;
+        int i = viTri(ma);
+        if (i < 0) return false;
+        SinhVien sv = dssv[i];   // sửa trực tiếp đối tượng trong danh sách (không đổi mã)
         System.out.println("Nhap thong tin moi cho " + sv.getMaSV() + ":");
         sv.nhapThongTin(sc);
         System.out.println("Da sua.");

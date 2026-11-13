@@ -176,7 +176,7 @@ Khi chương trình yêu cầu dữ liệu, nhập trực tiếp trong Terminal.
 - Ở các chương hướng đối tượng, lớp chính của đề (như `Diem`, `SinhVien`) được khai báo trong cùng file, lớp `BaiN` dùng để chạy thử.
 - Trong một chương, tên lớp không được trùng giữa các file (VS Code biên dịch cả thư mục). Lớp dùng chung cho nhiều bài được tách ra file riêng, ví dụ `Chuong4/Diem.java`.
 - Từ Chương 3 trở đi, mỗi thư mục có `NhapLieu.java` chứa các hàm nhập an toàn: gõ chữ thay vì số, `NaN`, vô cực hoặc giá trị ngoài khoảng cho phép sẽ được yêu cầu nhập lại thay vì làm chương trình dừng.
-- Setter và hàm thiết lập từ chối dữ liệu sai (kích thước ≤ 0 hoặc lớn hơn `NhapLieu.KICH_THUOC_TOI_DA` = 1e100, điểm ngoài [0, 10], số trang ≤ 0) và giữ giá trị cũ; với thuộc tính `float`, giá trị được kiểm tra sau khi ép kiểu. Các hàm thêm vào danh sách không cho trùng mã.
+- Setter và hàm thiết lập từ chối dữ liệu sai (kích thước ≤ 0 hoặc lớn hơn `NhapLieu.KICH_THUOC_TOI_DA` = 1e100, điểm ngoài [0, 10], số trang ≤ 0) và giữ giá trị cũ; với thuộc tính `float`, giá trị được kiểm tra sau khi ép kiểu. Các lớp danh sách (`DSSV`, `DSCB`) không cho trùng mã, chỉ lưu và trả về bản sao của đối tượng; muốn đổi mã phải gọi `doiMa()` của danh sách.
 - Tên file phải trùng tên lớp `public`, kể cả chữ hoa và chữ thường.
 
 ## Tác giả

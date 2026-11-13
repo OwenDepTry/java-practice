@@ -206,7 +206,7 @@ public class Bai1 {
         }
 
         System.out.println("\n--- Danh sach phuong tien ---");
-        int tongCho = 0;
+        long tongCho = 0;   // long: tổng nhiều xe có thể vượt giới hạn int
         for (Vehicle v : ds) {
             v.print();         // đa hình
             // Xử lý riêng nhóm xe chở khách nhưng vẫn duyệt chung một mảng

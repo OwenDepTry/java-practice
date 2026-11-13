@@ -98,5 +98,7 @@ public class Bai4 {
 
         SinhVien sv2 = new SinhVien("SV002", "Tran Thi B", "CNTT1", 7, 8.5f, 6);
         sv2.xuat();
+
+        sc.close();
     }
 }

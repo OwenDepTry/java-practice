@@ -51,5 +51,7 @@ public class Bai3 {
 
         HinhTron ht2 = new HinhTron(2.5);
         ht2.xuat();
+
+        sc.close();
     }
 }

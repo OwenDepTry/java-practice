@@ -58,5 +58,7 @@ public class Bai2 {
 
         HinhChuNhat hcn2 = new HinhChuNhat(5, 3);
         hcn2.xuat();
+
+        sc.close();
     }
 }

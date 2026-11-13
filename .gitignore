@@ -1,0 +1,13 @@
+# File bien dich cua Java
+*.class
+
+# Thu muc build cua IDE
+bin/
+out/
+target/
+
+# File cau hinh IDE / he dieu hanh
+.idea/
+*.iml
+.DS_Store
+Thumbs.db

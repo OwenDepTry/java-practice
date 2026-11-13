@@ -1,4 +1,4 @@
-# Java Practice
+# Java Programming Language
 
 > Luyện giải bài tập Java và thực hành lập trình hướng đối tượng.
 
@@ -12,13 +12,15 @@ Repository lưu lại quá trình học Java của **Phan Tiến Đạt**: từ 
 | [Chương 1B](./Chuong1b/) | Điều kiện, vòng lặp, mảng và chuỗi | 10 | [Chuong01b.pdf](./Chuong1b/Chuong01b.pdf) |
 | [Chương 2](./Chuong2/) | Tổng quan lập trình hướng đối tượng | — | [Chuong2_OOP.pdf](./Chuong2/Chuong2_OOP.pdf) |
 | [Chương 3](./Chuong3/) | Lớp và đối tượng | 4 | [Chuong03_LopVaDoiTuong.pdf](./Chuong3/Chuong03_LopVaDoiTuong.pdf) |
-| [Chương 4](./Chuong4/) | Kế thừa | — | [Chuong04_KeThua.pdf](./Chuong4/Chuong04_KeThua.pdf) |
-| [Chương 5](./Chuong5/) | Tính đa hình | — | [Chuong05_TinhDaHinh.pdf](./Chuong5/Chuong05_TinhDaHinh.pdf) |
-| [Chương 6](./Chuong6/) | Hàm chồng và tạo lớp danh sách | — | [Chuong06_HamChongVaTaoLopDanhSach.pdf](./Chuong6/Chuong06_HamChongVaTaoLopDanhSach.pdf) |
+| [Chương 4](./Chuong4/) | Kế thừa | 3 | [Chuong04_KeThua.pdf](./Chuong4/Chuong04_KeThua.pdf) |
+| [Chương 5](./Chuong5/) | Tính đa hình | 1 | [Chuong05_TinhDaHinh.pdf](./Chuong5/Chuong05_TinhDaHinh.pdf) |
+| [Chương 6](./Chuong6/) | Hàm chồng và tạo lớp danh sách | 3 | [Chuong06_HamChongVaTaoLopDanhSach.pdf](./Chuong6/Chuong06_HamChongVaTaoLopDanhSach.pdf) |
 | [Chương 8](./ClassDiagram/) | Sơ đồ lớp (Class Diagram) | — | [ChuongVIII_ClassDiagram.pdf](./ClassDiagram/ChuongVIII_ClassDiagram.pdf) |
-| [Bài tập bổ sung](./BaiTapBoSung/) | Bài tập tổng hợp | — | [BaiTapBoSung.pdf](./BaiTapBoSung/BaiTapBoSung.pdf) |
+| [Bài tập bổ sung](./BaiTapBoSung/) | Bài tập tổng hợp | 4 | [BaiTapBoSung.pdf](./BaiTapBoSung/BaiTapBoSung.pdf) |
 
-`—`: chương mới có tài liệu, bài giải sẽ được bổ sung trong quá trình học.
+`—`: chương chỉ có lý thuyết, không có bài tập lập trình.
+
+Tài liệu tự biên soạn [Java_OOP_LyThuyet_Va_ViDu_ChiTiet.pdf](./Java_OOP_LyThuyet_Va_ViDu_ChiTiet.pdf) diễn giải lý thuyết, tóm tắt đề và hướng làm của mọi bài tập trong kho.
 
 ## Chi tiết bài giải
 
@@ -56,19 +58,53 @@ Mỗi lớp có thuộc tính `private`, getter/setter, hàm thiết lập có v
 | [Bài 3](./Chuong3/Bai3.java) | `HinhTron` | Bán kính; tính diện tích và chu vi |
 | [Bài 4](./Chuong3/Bai4.java) | `SinhVien` | Mã SV, họ tên, lớp, điểm 3 môn; tính điểm trung bình và xếp loại |
 
+### Chương 4 · Kế thừa
+
+| Bài | Lớp | Nội dung |
+|---|---|---|
+| [Bài 1](./Chuong4/Bai1.java) | `NoiSinh`, `Nguoi`, `SinhVien` | `Nguoi` có một `NoiSinh` (has-a); `SinhVien` kế thừa `Nguoi`, thêm MASV và lớp |
+| [Bài 2](./Chuong4/Bai2.java) | `Diem`, `DiemMau`, `DoanThang` | Đoạn thẳng gồm 2 điểm màu; tính khoảng cách, kiểm tra cùng màu |
+| [Bài 3](./Chuong4/Bai3.java) | `TamGiac` | Tam giác gồm 3 đỉnh `Diem` (dùng lại lớp của Bài 2); kiểm tra thẳng hàng, tính chu vi |
+
+Lớp `Diem` dùng chung cho Bài 2 và Bài 3 nên nằm ở file riêng [Diem.java](./Chuong4/Diem.java).
+
+### Chương 5 · Tính đa hình
+
+| Bài | Lớp | Nội dung |
+|---|---|---|
+| [Bài 1](./Chuong5/Bai1.java) | `HinhHoc`, `HinhTron`, `HinhChuNhat` | Lớp trừu tượng hình học; mảng `HinhHoc[]` gọi nhập, xuất, diện tích, chu vi theo đa hình |
+
+### Chương 6 · Hàm chồng và tạo lớp danh sách
+
+| Bài | Lớp | Nội dung |
+|---|---|---|
+| [Bài 1](./Chuong6/Bai1.java) | `SinhVien`, `DSSV`, `QuanLyDSSV` | Quản lý sinh viên: thêm (hàm chồng), xoá, sửa, tìm kiếm, thống kê qua menu |
+| [Bài 2](./Chuong6/Bai2.java) | `VanPhongPham`, `Tap`, `But`, `DanhSachVPP` | Văn phòng phẩm; đa hình cho nhập/xuất, thêm tập hoặc bút vào danh sách |
+| [Bài 3](./Chuong6/Bai3.java) | `CanBo`, `CongNhan`, `KySu`, `NhanVien`, `DSCB` | Quản lý cán bộ: thêm, sửa/xoá theo mã, tìm theo họ tên, hiển thị |
+
+### Bài tập bổ sung
+
+| Bài | Lớp | Nội dung |
+|---|---|---|
+| [Bài 1](./BaiTapBoSung/Bai1.java) | `Vehicle`, `PassengerVehicle`, `Car`, `Bus`, `Truck`, `Motorbike` | Cây phân cấp phương tiện; xe con và xe buýt thuộc nhóm xe chở khách; `input()`/`print()` đa hình |
+| [Bài 2](./BaiTapBoSung/Bai2.java) | `Shape`, `Resizable`, `Circle`, `Square`, `ResizableCircle`, `ResizableSquare` | Cài đặt theo sơ đồ lớp; `resize(percent)` in chu vi và diện tích sau khi đổi kích cỡ |
+| [Bài 3](./BaiTapBoSung/Bai3.java) | `Cho`, `Sap`, `SapThucPham`, `SapQuanAo`, `SapTrangSuc` | Chợ OOP-Market: nhập danh sách sạp, tính tổng tiền phải đóng (thuế trang sức luỹ tiến) |
+| [Bài 4](./BaiTapBoSung/Bai4.java) | `CaSi`, `CaSiChuaNoiTieng`, `CaSiNoiTieng`, `CongTyXYZ` | Nhập danh sách ca sĩ, tính lương, tìm ca sĩ lương cao nhất |
+
 ## Cấu trúc thư mục
 
 ```text
-java-practice/
+java-programming-language/
 ├── Chuong1a/      # package Chuong1a — Bai1.java … Bai3.java
 ├── Chuong1b/      # package Chuong1b — Bai1.java … Bai10.java
 ├── Chuong2/       # tài liệu PDF
 ├── Chuong3/       # package Chuong3  — Bai1.java … Bai4.java
-├── Chuong4/       # tài liệu PDF
-├── Chuong5/       # tài liệu PDF
-├── Chuong6/       # tài liệu PDF
+├── Chuong4/       # package Chuong4  — Bai1.java … Bai3.java, Diem.java
+├── Chuong5/       # package Chuong5  — Bai1.java
+├── Chuong6/       # package Chuong6  — Bai1.java … Bai3.java
 ├── ClassDiagram/  # tài liệu PDF — sơ đồ lớp
-├── BaiTapBoSung/  # tài liệu PDF — bài tập bổ sung
+├── BaiTapBoSung/  # package BaiTapBoSung — Bai1.java … Bai4.java
+├── Java_OOP_LyThuyet_Va_ViDu_ChiTiet.pdf  # tài liệu lý thuyết tự biên soạn
 └── README.md
 ```
 
@@ -92,13 +128,13 @@ Nếu Terminal không nhận lệnh, kiểm tra lại việc cài JDK và biến
 ### Lấy mã nguồn
 
 ```bash
-git clone https://github.com/OwenDepTry/java-practice.git
-cd java-practice
+git clone https://github.com/OwenDepTry/java-programming-language.git
+cd java-programming-language
 ```
 
 ### Biên dịch và chạy bằng Terminal
 
-Luôn chạy lệnh từ thư mục gốc `java-practice`. Cú pháp chung:
+Luôn chạy lệnh từ thư mục gốc `java-programming-language`. Cú pháp chung:
 
 ```bash
 javac -encoding UTF-8 <ThuMuc>/<TenBai>.java
@@ -115,13 +151,19 @@ java Chuong1a.Bai1
 # Chương 3 – Bài 4 (lớp SinhVien)
 javac -encoding UTF-8 Chuong3/Bai4.java
 java Chuong3.Bai4
+
+# Bài tập bổ sung – Bài 3 (chợ OOP-Market)
+javac -encoding UTF-8 BaiTapBoSung/Bai3.java
+java BaiTapBoSung.Bai3
 ```
+
+Biên dịch xong có thể xoá file `.class` sinh ra; file này đã được bỏ qua trong `.gitignore`.
 
 Khi chương trình yêu cầu dữ liệu, nhập trực tiếp trong Terminal.
 
 ### Chạy bằng VS Code
 
-1. Mở thư mục `java-practice` trong VS Code.
+1. Mở thư mục `java-programming-language` trong VS Code.
 2. Cài **Extension Pack for Java** nếu chưa có.
 3. Mở file bài tập cần chạy.
 4. Bấm **Run** phía trên hàm `main`, sau đó nhập dữ liệu trong Terminal.
@@ -131,6 +173,7 @@ Khi chương trình yêu cầu dữ liệu, nhập trực tiếp trong Terminal.
 - Mỗi chương là một thư mục `ChuongX` và cũng là một `package` cùng tên, ví dụ `package Chuong3;`.
 - Mỗi bài nằm trong file `BaiN.java` với lớp `public class BaiN` chứa hàm `main`, để đối chiếu nhanh với đề bài.
 - Ở các chương hướng đối tượng, lớp chính của đề (như `Diem`, `SinhVien`) được khai báo trong cùng file, lớp `BaiN` dùng để chạy thử.
+- Trong một chương, tên lớp không được trùng giữa các file (VS Code biên dịch cả thư mục). Lớp dùng chung cho nhiều bài được tách ra file riêng, ví dụ `Chuong4/Diem.java`.
 - Tên file phải trùng tên lớp `public`, kể cả chữ hoa và chữ thường.
 
 ## Tác giả

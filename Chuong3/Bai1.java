@@ -63,5 +63,7 @@ public class Bai1 {
         a.diChuyen(dx, dy);
         System.out.print("A sau khi di chuyen: ");
         a.xuat();
+
+        sc.close();
     }
 }

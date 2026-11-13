@@ -221,7 +221,9 @@ class DSCB {
         if (cb == null || cb.getMa() == null || cb.getMa().trim().isEmpty()
                 || viTri(cb.getMa()) >= 0) return false;
         ds = Arrays.copyOf(ds, n + 1);
-        ds[n] = cb.saoChep();
+        CanBo banSao = cb.saoChep();
+        banSao.setMa(banSao.getMa().trim());   // chuẩn hoá mã giống lúc tìm kiếm
+        ds[n] = banSao;
         n++;
         return true;
     }

@@ -108,7 +108,9 @@ class DSSV {
     public boolean them(SinhVien x) {
         if (x == null || x.getMaSV() == null || x.getMaSV().trim().isEmpty() || viTri(x.getMaSV()) >= 0) return false;
         dssv = Arrays.copyOf(dssv, n + 1);
-        dssv[n] = new SinhVien(x);   // gọi hàm thiết lập sao chép
+        SinhVien banSao = new SinhVien(x);   // gọi hàm thiết lập sao chép
+        banSao.setMaSV(banSao.getMaSV().trim());   // chuẩn hoá mã giống lúc tìm kiếm
+        dssv[n] = banSao;
         n++;
         return true;
     }

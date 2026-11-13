@@ -181,3 +181,4 @@ Khi chương trình yêu cầu dữ liệu, nhập trực tiếp trong Terminal.
 **Phan Tiến Đạt**<br>
 Sinh viên Công nghệ thông tin · Trường Đại học Sài Gòn<br>
 GitHub: [@OwenDepTry](https://github.com/OwenDepTry)
+Nguồn file giáo trình java: [@Owendeptry](https://tailieuhust.com/tai-lieu-lap-trinh-java-hust/)

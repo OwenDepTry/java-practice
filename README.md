@@ -187,6 +187,6 @@ GitHub: [@OwenDepTry](https://github.com/OwenDepTry)
 
 ## Nguồn tài liệu
 
-- Slide bài giảng và đề bài tập trong các thư mục chương: tài liệu học phần, trang bìa Chương 1A ghi giảng viên Trần Nguyễn Minh Hiếu.
+- Slide bài giảng và đề bài tập trong các thư mục chương: Ths. Trần Nguyễn Minh Hiếu khoa Công Nghệ Thông Tin trường Đại học Sài Gòn
 - Giáo trình Java [giaotrinh-JAVA.pdf](./giaotrinh-JAVA.pdf): tải từ trang [Tài liệu môn Lập trình Java – Tài liệu HUST](https://tailieuhust.com/tai-lieu-lap-trinh-java-hust/).
 - [Java_OOP_LyThuyet_Va_ViDu_ChiTiet.pdf](./Java_OOP_LyThuyet_Va_ViDu_ChiTiet.pdf): tài liệu do Phan Tiến Đạt tự biên soạn từ các slide trên.
